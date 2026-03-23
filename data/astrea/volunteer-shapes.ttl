@@ -1,0 +1,720 @@
+@prefix :      <https://ns.volunteeringdata.io/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix afn:   <http://jena.apache.org/ARQ/function#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix geo:   <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix og:    <http://ogp.me/ns#> .
+@prefix id:    <https://id.volunteeringdata.io/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix dc:    <http://purl.org/dc/terms/> .
+
+@prefix volunteer-shape: <https://solidproject.org/shapes/volunteer#> .
+
+<https://astrea.linkeddata.es/shapes#0661b5feb70d9a5f32d6dcdbb848da33>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Location"@en ;
+        sh:description    "Any location related to volunteering activities."@en ;
+        sh:name           "Location"@en ;
+        sh:nodeKind       sh:IRI ;
+        sh:property       <https://astrea.linkeddata.es/shapes#a11bf5c781426b7eabeae58a2ebf9092> ;
+        sh:targetClass    :Location .
+
+<https://astrea.linkeddata.es/shapes#837e0b5e9e44b14c2739d006d8191263>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "accessibility information has role"@en ;
+        sh:class          :Role ;
+        sh:name           "accessibility information has role"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :accessibilityRole .
+
+<https://astrea.linkeddata.es/shapes#dd128d01f4b619b60ff312d7f22e4e73>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "reward has role"@en ;
+        sh:class          :Role ;
+        sh:name           "reward has role"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :rewardRole .
+
+<https://astrea.linkeddata.es/shapes#0327ce4eb9e41c476daa41abd8eb0c26>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "activity requires emergency participation"@en ;
+        sh:datatype       xsd:boolean ;
+        sh:name           "activity requires emergency participation"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :activityRequiresEmergencyParticipation ;
+        sh:pattern        "true|false|0|1" .
+
+<https://astrea.linkeddata.es/shapes#5ba097c42f10e9b9a1aead4acf8673dd>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "session has activity"@en ;
+        sh:class          :Activity ;
+        sh:name           "session has activity"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :sessionActivity .
+
+<https://astrea.linkeddata.es/report/01259378465>
+        a       <https://w3id.org/def/astrea#ReportEntry> ;
+        <https://w3id.org/def/astrea#message>
+                "Shapes generated with no errors" ;
+        <https://w3id.org/def/astrea#source>
+                "https://api.volunteeringdata.io/schema.ttl" ;
+        <https://w3id.org/def/astrea#statusCode>
+                "200"^^xsd:int .
+
+<https://astrea.linkeddata.es/shapes#cfe46a42a59dabd42e2db26924b5983f>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has commitment"@en , "Free text description of the expected commitment to the role (e.g. 4 hours per week)."@en ;
+        sh:description    "Free text description of the expected commitment to the role (e.g. 4 hours per week)."@en ;
+        sh:name           "has commitment"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :commitment .
+
+<https://astrea.linkeddata.es/shapes#736a90b16709980731b54a0d50dcefb7>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has Geometry"@en , "A geometry represents the spatial extent of a location (see OGC GeoSPARQL)."@en ;
+        rdfs:seeAlso      <https://opengeospatial.github.io/ogc-geosparql/> ;
+        sh:description    "A geometry represents the spatial extent of a location (see OGC GeoSPARQL)."@en ;
+        sh:name           "has Geometry"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :geometry .
+
+<https://astrea.linkeddata.es/shapes#9ab84521f15e2e25491eb2ef34b617b4>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "organisation has image"@en ;
+        sh:name           "organisation has image"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :organisationImage .
+
+<https://astrea.linkeddata.es/shapes#2bfd9627a25fe0d4323988cc935bccff>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "charitable cause has organisation"@en ;
+        sh:class          :Organisation ;
+        sh:name           "charitable cause has organisation"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :causeOrganisation .
+
+<https://astrea.linkeddata.es/shapes#5309d03029c3c8ec0666212d7a68662d>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has charity number"@en ;
+        sh:name           "has charity number"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :charityNumber .
+
+<https://astrea.linkeddata.es/shapes#6defa58d01803ce09ae8d39925cd1246>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "location has longitude"@en ;
+        sh:name           "location has longitude"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :locationLongitude .
+
+<https://astrea.linkeddata.es/shapes#62813435e58c1a1b0c66c0e76e128e34>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has website"@en ;
+        sh:name           "has website"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :website .
+
+<https://astrea.linkeddata.es/shapes#aa2d4ddaefd19b3ee52e633f762891fe>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "role allows remote participation"@en ;
+        sh:datatype       xsd:boolean ;
+        sh:name           "role allows remote participation"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :roleAllowsRemoteParticipation ;
+        sh:pattern        "true|false|0|1" .
+
+<https://astrea.linkeddata.es/shapes#fd5cb1469676c4e7dfd24d653a87dbb7>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has time"@en ;
+        sh:class          :Time ;
+        sh:name           "has time"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :time .
+
+<https://astrea.linkeddata.es/shapes#5c42024b3f4dfade9022048e46fddf0e>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "role has description"@en ;
+        sh:name           "role has description"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :roleDescription .
+
+<https://astrea.linkeddata.es/shapes#fadd9407e5ea817c11d5733cbeebe6ba>
+        a               sh:NodeShape ;
+        sh:property     <https://astrea.linkeddata.es/shapes#837e0b5e9e44b14c2739d006d8191263> ;
+        sh:targetClass  :Accessibility .
+
+<https://astrea.linkeddata.es/shapes#0262236358cfb16746497bf871c2222e>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "location has Geometry"@en ;
+        sh:name           "location has Geometry"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :locationGeometry .
+
+<https://astrea.linkeddata.es/shapes#a33a44f84f2fe936c70fb3d9ba8b7fe3>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "session has location"@en ;
+        sh:class          :Location ;
+        sh:name           "session has location"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :sessionLocation .
+
+<https://astrea.linkeddata.es/shapes#2d59063cb5c9ff7d9f4ef9de6d46c09e>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has activity"@en ;
+        sh:class          :Activity ;
+        sh:name           "has activity"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :activity .
+
+<https://astrea.linkeddata.es/shapes#4d50076b344b362efa7a1023517215d7>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has requirement"@en ;
+        sh:name           "has requirement"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :requirement .
+
+<https://astrea.linkeddata.es/shapes#416ba4a2579dd879521b8c6889118679>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "organisation has website"@en ;
+        sh:name           "organisation has website"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :organisationWebsite .
+
+<https://astrea.linkeddata.es/shapes#67155b7e6aa1ca27e706ac47e42d81fa>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "requires emergency participation"@en ;
+        sh:name           "requires emergency participation"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :requiresEmergencyParticipation .
+
+<https://astrea.linkeddata.es/shapes#ad13dc6ab605ba45028d5025f364545f>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Organisation"@en ;
+        sh:description    "Any organisation running activities that involve volunteers."@en ;
+        sh:name           "Organisation"@en ;
+        sh:nodeKind       sh:IRI ;
+        sh:property       <https://astrea.linkeddata.es/shapes#5d8286ff9b0f47576c838c0d9302927c> , <https://astrea.linkeddata.es/shapes#854b84179d1820d1d13e059e996ee574> ;
+        sh:targetClass    :Organisation .
+
+<https://astrea.linkeddata.es/shapes#2b3e1c4498da2f76717da385232ede0e>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Role"@en ;
+        sh:description    "Any kind of role related to a volunteering activity."@en ;
+        sh:name           "Role"@en ;
+        sh:nodeKind       sh:IRI ;
+        sh:property       <https://astrea.linkeddata.es/shapes#a40ea6428a2cab948ffdff7a044ecc2d> , <https://astrea.linkeddata.es/shapes#e6d75b283730f1aa555eaa485b618aac> , <https://astrea.linkeddata.es/shapes#aa2d4ddaefd19b3ee52e633f762891fe> , <https://astrea.linkeddata.es/shapes#ebe2012ea99051803bf8b8bac8edbca8> , <https://astrea.linkeddata.es/shapes#b0adba2117c00caf337b7628e4e3dc71> , <https://astrea.linkeddata.es/shapes#ef74a0a9f2ddf2c95ac106886fca31ce> ;
+        sh:targetClass    :Role .
+
+<https://astrea.linkeddata.es/shapes#d8dbd533347d758585468ed923f8cfa0>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has location"@en ;
+        sh:class          :Location ;
+        sh:name           "has location"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :location .
+
+<https://astrea.linkeddata.es/shapes#ddeff1b1c19d85a7d6918a1e737a52eb>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has accessibility information"@en ;
+        sh:name           "has accessibility information"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :accessbibility .
+
+<https://astrea.linkeddata.es/shapes#c2d5fd1796b490821fa857687ee62042>
+        a               sh:NodeShape ;
+        sh:property     <https://astrea.linkeddata.es/shapes#f9326b81c4993051c49c33007c563b8b> ;
+        sh:targetClass  :Requirement .
+
+<https://astrea.linkeddata.es/shapes#f20ebe0b840c0b27e88a5d9685d4e828>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "role has title"@en ;
+        sh:name           "role has title"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :roleTitle .
+
+<https://astrea.linkeddata.es/shapes#12602950f6b67919648f8a046beba294>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has Image"@en , "An image URL which can be used to present something related to volunteering."@en ;
+        rdfs:seeAlso      <https://opengeospatial.github.io/ogc-geosparql/> ;
+        sh:description    "An image URL which can be used to present something related to volunteering."@en ;
+        sh:name           "has Image"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :image .
+
+<https://astrea.linkeddata.es/shapes#639c37903a9f4085cc560dfc039aee32>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Activity"@en ;
+        sh:description    "Any kind of activity that involves volunteers."@en ;
+        sh:name           "Activity"@en ;
+        sh:nodeKind       sh:IRI ;
+        sh:property       <https://astrea.linkeddata.es/shapes#9b5d021c36094114da2d17fbcb9b1949> , <https://astrea.linkeddata.es/shapes#0327ce4eb9e41c476daa41abd8eb0c26> , <https://astrea.linkeddata.es/shapes#5a19b4a95af1d0371b92de31b8ea7094> , <https://astrea.linkeddata.es/shapes#c34f5cff1160876128ebcc005101b571> ;
+        sh:targetClass    :Activity .
+
+<https://astrea.linkeddata.es/shapes#e2f0bb7c006ca50cbe4938573d87b6ae>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "location has latitude"@en ;
+        sh:name           "location has latitude"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :locationLatitude .
+
+<https://astrea.linkeddata.es/shapes#9aaf39e1fad297a49d12476ab2ccba8a>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "allows remote participation"@en ;
+        sh:name           "allows remote participation"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :allowsRemoteParticipation .
+
+<https://astrea.linkeddata.es/shapes#ff19cf5e36e76975b90f35a4c0aef601>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has maximum age"@en ;
+        sh:name           "has maximum age"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :maximumAge .
+
+<https://astrea.linkeddata.es/shapes#299718a0f89179cbd25fd2d1d2495f98>
+        a               sh:NodeShape ;
+        sh:property     <https://astrea.linkeddata.es/shapes#dd128d01f4b619b60ff312d7f22e4e73> ;
+        sh:targetClass  :Reward .
+
+<https://astrea.linkeddata.es/shapes#d3777cfb826bfa187f8646c5e5e51ef8>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has name"@en ;
+        sh:name           "has name"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :name .
+
+<https://astrea.linkeddata.es/shapes#8139c9c21dd0b94794e8ee9aa6a4e059>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "location has address"@en ;
+        sh:name           "location has address"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :locationAddress .
+
+<https://astrea.linkeddata.es/shapes#6d763cdf0e64f366de33626ccb6c22ca>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "role has commitment"@en ;
+        sh:name           "role has commitment"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :roleCommitment .
+
+<https://astrea.linkeddata.es/shapes#b0adba2117c00caf337b7628e4e3dc71>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "role has skill"@en ;
+        sh:class          :Skill ;
+        sh:name           "role has skill"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :roleSkill .
+
+<https://astrea.linkeddata.es/shapes#d95fa63f510296b8ed9d9c85d4b7eeba>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "organisation has name"@en ;
+        sh:name           "organisation has name"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :organisationName .
+
+<https://astrea.linkeddata.es/shapes#f9326b81c4993051c49c33007c563b8b>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "requirement has role"@en ;
+        sh:class          :Role ;
+        sh:name           "requirement has role"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :requirementRole .
+
+<https://astrea.linkeddata.es/shapes#7f8e102c1c064118b9b1b67cf66661df>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "role has apply link"@en ;
+        sh:name           "role has apply link"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :roleApplyLink .
+
+<https://astrea.linkeddata.es/shapes#8f6dd0bf5c31a837c3e046e6e0b026d9>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has skill"@en ;
+        sh:name           "has skill"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :skill .
+
+<https://astrea.linkeddata.es/shapes#ee3ae797acef91004b0769dd90afcbc6>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "activity has image"@en ;
+        sh:name           "activity has image"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :activityImage .
+
+<https://astrea.linkeddata.es/shapes#ce50fcf84a2e7ef8f2880cf79a073432>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "activity has title"@en ;
+        sh:name           "activity has title"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :activityTitle .
+
+<https://astrea.linkeddata.es/shapes#e6d75b283730f1aa555eaa485b618aac>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "role has activity"@en ;
+        sh:class          :Activity ;
+        sh:name           "role has activity"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :roleActivity .
+
+<https://astrea.linkeddata.es/shapes#db123236fc59555501f7fa9dfc8c9adb>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "organisation has charity number"@en ;
+        sh:name           "organisation has charity number"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :organisationCharityNumber .
+
+<https://astrea.linkeddata.es/shapes#5a19b4a95af1d0371b92de31b8ea7094>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "activity has organisation"@en ;
+        sh:class          :Organisation ;
+        sh:name           "activity has organisation"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :activityOrganisation .
+
+<https://astrea.linkeddata.es/shapes#1cdfe68b4e19c4173eeff25e111adccb>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "role has maximum age"@en ;
+        sh:name           "role has maximum age"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :roleMaximumAge .
+
+<https://astrea.linkeddata.es/shapes#9766256b6de0f8b6f7d2a04ed23f93d0>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "location has name"@en ;
+        sh:name           "location has name"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :locationName .
+
+<https://astrea.linkeddata.es/shapes#6adb3e1427cc0f0abc8c54cb64a29dff>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "session has time"@en ;
+        sh:class          :Time ;
+        sh:name           "session has time"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :sessionTime .
+
+<https://astrea.linkeddata.es/shapes#9b5d021c36094114da2d17fbcb9b1949>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "activity has session"@en ;
+        sh:class          :Session ;
+        sh:name           "activity has session"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :activitySession .
+
+<https://astrea.linkeddata.es/shapes#d23622a1e6fc79dd37db74eb7ae09ba1>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has apply link"@en ;
+        sh:name           "has apply link"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :applyLink .
+
+<https://astrea.linkeddata.es/shapes#d149c5ad7b1c9caabce2f8f0b9851b43>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has title"@en ;
+        sh:name           "has title"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :title .
+
+<https://astrea.linkeddata.es/shapes#ef74a0a9f2ddf2c95ac106886fca31ce>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "role has accessibility"@en ;
+        sh:class          :Accessibility ;
+        sh:name           "role has accessibility"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :roleAccessibility .
+
+<https://astrea.linkeddata.es/shapes#c0f24ce0fd441a76d5cf0c642444fff5>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has description"@en ;
+        sh:name           "has description"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :description .
+
+<https://astrea.linkeddata.es/shapes#4b1da9c81d8183154356bc2c5ff54587>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has reward"@en ;
+        sh:name           "has reward"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :reward .
+
+<http://astrea.linkeddata.es/report>
+        a       <https://w3id.org/def/astrea#ShapeReport> ;
+        <https://w3id.org/def/astrea#contains>
+                <https://astrea.linkeddata.es/shapes#5d8286ff9b0f47576c838c0d9302927c> , <https://astrea.linkeddata.es/shapes#8f6dd0bf5c31a837c3e046e6e0b026d9> , <https://astrea.linkeddata.es/shapes#fd5cb1469676c4e7dfd24d653a87dbb7> , <https://astrea.linkeddata.es/shapes#ef74a0a9f2ddf2c95ac106886fca31ce> , <https://astrea.linkeddata.es/shapes#35fa56014cca558e8981786c1b401a8c> , <https://astrea.linkeddata.es/shapes#d95fa63f510296b8ed9d9c85d4b7eeba> , <https://astrea.linkeddata.es/shapes#d3777cfb826bfa187f8646c5e5e51ef8> , <https://astrea.linkeddata.es/shapes#9b5d021c36094114da2d17fbcb9b1949> , <https://astrea.linkeddata.es/shapes#d7490f1bb0d71de74eb760284c420792> , <https://astrea.linkeddata.es/shapes#5a19b4a95af1d0371b92de31b8ea7094> , <https://astrea.linkeddata.es/shapes#8e66c7abac041da2be7896d2d879e5a2> , <https://astrea.linkeddata.es/shapes#639c37903a9f4085cc560dfc039aee32> , <https://astrea.linkeddata.es/shapes#67155b7e6aa1ca27e706ac47e42d81fa> , <https://astrea.linkeddata.es/shapes#f9326b81c4993051c49c33007c563b8b> , <https://astrea.linkeddata.es/shapes#d8dbd533347d758585468ed923f8cfa0> , <https://astrea.linkeddata.es/shapes#18ea1a4bea147673b75e635b535c2ab7> , <https://astrea.linkeddata.es/shapes#4408a0788ed34c5249c4fd09cd98dea8> , <https://astrea.linkeddata.es/shapes#0262236358cfb16746497bf871c2222e> , <https://astrea.linkeddata.es/shapes#c0f24ce0fd441a76d5cf0c642444fff5> , <https://astrea.linkeddata.es/shapes#d149c5ad7b1c9caabce2f8f0b9851b43> , <https://astrea.linkeddata.es/shapes#c34f5cff1160876128ebcc005101b571> , <https://astrea.linkeddata.es/shapes#12602950f6b67919648f8a046beba294> , <https://astrea.linkeddata.es/shapes#2bfd9627a25fe0d4323988cc935bccff> , <https://astrea.linkeddata.es/shapes#525430c4dced72958bd0bc94dfce10dc> , <https://astrea.linkeddata.es/shapes#f616be19bf46b3fae82476244d8d2f61> , <https://astrea.linkeddata.es/shapes#f43d2da3edcf768b75a6858280588018> , <https://astrea.linkeddata.es/shapes#ad13dc6ab605ba45028d5025f364545f> , <https://astrea.linkeddata.es/shapes#a11bf5c781426b7eabeae58a2ebf9092> , <https://astrea.linkeddata.es/shapes#9ab84521f15e2e25491eb2ef34b617b4> , <https://astrea.linkeddata.es/shapes#7f8e102c1c064118b9b1b67cf66661df> , <https://astrea.linkeddata.es/shapes#5ef0d9edf06df84fd07684ab23d9ba9b> , <https://astrea.linkeddata.es/shapes#e6d75b283730f1aa555eaa485b618aac> , <https://astrea.linkeddata.es/shapes#ddeff1b1c19d85a7d6918a1e737a52eb> , <https://astrea.linkeddata.es/shapes#e2f0bb7c006ca50cbe4938573d87b6ae> , <https://astrea.linkeddata.es/shapes#db123236fc59555501f7fa9dfc8c9adb> , <https://astrea.linkeddata.es/shapes#837e0b5e9e44b14c2739d006d8191263> , <https://astrea.linkeddata.es/shapes#736a90b16709980731b54a0d50dcefb7> , <https://astrea.linkeddata.es/shapes#416ba4a2579dd879521b8c6889118679> , <https://astrea.linkeddata.es/shapes#0327ce4eb9e41c476daa41abd8eb0c26> , <https://astrea.linkeddata.es/shapes#749059ba4a9307299e8990963b92650b> , <https://astrea.linkeddata.es/shapes#b0adba2117c00caf337b7628e4e3dc71> , <https://astrea.linkeddata.es/shapes#62813435e58c1a1b0c66c0e76e128e34> , <https://astrea.linkeddata.es/shapes#86ac87009c8685ab4c305b4c9b9ee67a> , <https://astrea.linkeddata.es/shapes#4b1da9c81d8183154356bc2c5ff54587> , <https://astrea.linkeddata.es/shapes#dd128d01f4b619b60ff312d7f22e4e73> , <https://astrea.linkeddata.es/shapes#0661b5feb70d9a5f32d6dcdbb848da33> , <https://astrea.linkeddata.es/shapes#ce50fcf84a2e7ef8f2880cf79a073432> , <https://astrea.linkeddata.es/shapes#6d763cdf0e64f366de33626ccb6c22ca> , <https://astrea.linkeddata.es/shapes#a40ea6428a2cab948ffdff7a044ecc2d> , <https://astrea.linkeddata.es/shapes#1cdfe68b4e19c4173eeff25e111adccb> , <https://astrea.linkeddata.es/shapes#fadd9407e5ea817c11d5733cbeebe6ba> , <https://astrea.linkeddata.es/shapes#f20ebe0b840c0b27e88a5d9685d4e828> , <https://astrea.linkeddata.es/shapes#8139c9c21dd0b94794e8ee9aa6a4e059> , <https://astrea.linkeddata.es/shapes#ebe2012ea99051803bf8b8bac8edbca8> , <https://astrea.linkeddata.es/shapes#854b84179d1820d1d13e059e996ee574> , <https://astrea.linkeddata.es/shapes#7f38e8fd1f673cf35e3eb3d57c6bea93> , <https://astrea.linkeddata.es/shapes#cfe46a42a59dabd42e2db26924b5983f> , <https://astrea.linkeddata.es/shapes#5c42024b3f4dfade9022048e46fddf0e> , <https://astrea.linkeddata.es/shapes#aa2d4ddaefd19b3ee52e633f762891fe> , <https://astrea.linkeddata.es/shapes#61797a7e1424863b33155c52c217583b> , <https://astrea.linkeddata.es/shapes#a33a44f84f2fe936c70fb3d9ba8b7fe3> , <https://astrea.linkeddata.es/shapes#d23622a1e6fc79dd37db74eb7ae09ba1> , <https://astrea.linkeddata.es/shapes#420d7235e1a28305efa04934c46e0994> , <https://astrea.linkeddata.es/shapes#6adb3e1427cc0f0abc8c54cb64a29dff> , <https://astrea.linkeddata.es/shapes#2d59063cb5c9ff7d9f4ef9de6d46c09e> , <https://astrea.linkeddata.es/shapes#2b3e1c4498da2f76717da385232ede0e> , <https://astrea.linkeddata.es/shapes#5309d03029c3c8ec0666212d7a68662d> , <https://astrea.linkeddata.es/shapes#ee3ae797acef91004b0769dd90afcbc6> , <https://astrea.linkeddata.es/shapes#4d50076b344b362efa7a1023517215d7> , <https://astrea.linkeddata.es/shapes#4b699fdd1ef61fa45e9acc7fee899e75> , <https://astrea.linkeddata.es/shapes#299718a0f89179cbd25fd2d1d2495f98> , <https://astrea.linkeddata.es/shapes#9aaf39e1fad297a49d12476ab2ccba8a> , <https://astrea.linkeddata.es/shapes#5a8932fb9d23e1090ced66a1ad16b04b> , <https://astrea.linkeddata.es/shapes#ff19cf5e36e76975b90f35a4c0aef601> , <https://astrea.linkeddata.es/shapes#5ba097c42f10e9b9a1aead4acf8673dd> , <https://astrea.linkeddata.es/shapes#6defa58d01803ce09ae8d39925cd1246> , <https://astrea.linkeddata.es/shapes#12ff9dabe47391e219d67aa1ae1ab031> , <https://astrea.linkeddata.es/shapes#a98d76596fd570995558f183ce0637cb> , <https://astrea.linkeddata.es/shapes#c2d5fd1796b490821fa857687ee62042> , <https://astrea.linkeddata.es/shapes#9766256b6de0f8b6f7d2a04ed23f93d0> , <https://astrea.linkeddata.es/shapes#f2df156198f1fc11c7ede786b3e6f273> ;
+        <https://w3id.org/def/astrea#generatedShapesFrom>
+                <https://astrea.linkeddata.es/report/01259378465> .
+
+<https://astrea.linkeddata.es/shapes#a98d76596fd570995558f183ce0637cb>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "activity has description"@en ;
+        sh:name           "activity has description"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :activityDescription .
+
+<https://astrea.linkeddata.es/shapes#5a8932fb9d23e1090ced66a1ad16b04b>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has cause"@en ;
+        sh:name           "has cause"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :cause .
+
+<https://astrea.linkeddata.es/shapes#86ac87009c8685ab4c305b4c9b9ee67a>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has role"@en ;
+        sh:class          :Role ;
+        sh:name           "has role"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :role .
+
+<https://astrea.linkeddata.es/shapes#8e66c7abac041da2be7896d2d879e5a2>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has related concept"@en ;
+        sh:class          skos:Concept , :Concept ;
+        sh:name           "has related concept"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :relatedConcept .
+
+<https://astrea.linkeddata.es/shapes#12ff9dabe47391e219d67aa1ae1ab031>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has minimum age"@en ;
+        sh:name           "has minimum age"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :minimumAge .
+
+<https://astrea.linkeddata.es/shapes#d7490f1bb0d71de74eb760284c420792>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "skill has role"@en ;
+        sh:class          :Role ;
+        sh:name           "skill has role"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :skillRole .
+
+<https://astrea.linkeddata.es/shapes#749059ba4a9307299e8990963b92650b>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Weekday Time Period"@en ;
+        sh:description    "A predefined time period within a specific day of the week (morning, afternoon or evening)."@en ;
+        sh:name           "Weekday Time Period"@en ;
+        sh:nodeKind       sh:IRI ;
+        sh:targetClass    :WeekdayTimePeriod .
+
+<https://astrea.linkeddata.es/shapes#7f38e8fd1f673cf35e3eb3d57c6bea93>
+        a               sh:NodeShape ;
+        sh:property     <https://astrea.linkeddata.es/shapes#d7490f1bb0d71de74eb760284c420792> ;
+        sh:targetClass  :Skill .
+
+<https://astrea.linkeddata.es/shapes#a11bf5c781426b7eabeae58a2ebf9092>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "session has location"@en ;
+        sh:class          :Session ;
+        sh:name           "session has location"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :locationSession .
+
+<https://astrea.linkeddata.es/shapes#f2df156198f1fc11c7ede786b3e6f273>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "organisation has description"@en ;
+        sh:name           "organisation has description"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :organisationDescription .
+
+<https://astrea.linkeddata.es/shapes#ebe2012ea99051803bf8b8bac8edbca8>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "role has reward"@en ;
+        sh:class          :Reward ;
+        sh:name           "role has reward"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :roleReward .
+
+<https://astrea.linkeddata.es/shapes#18ea1a4bea147673b75e635b535c2ab7>
+        a               sh:NodeShape ;
+        sh:property     <https://astrea.linkeddata.es/shapes#2bfd9627a25fe0d4323988cc935bccff> ;
+        sh:targetClass  :Cause .
+
+<https://astrea.linkeddata.es/shapes#5d8286ff9b0f47576c838c0d9302927c>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "organisation has charitable cause"@en ;
+        sh:class          :Cause ;
+        sh:name           "organisation has charitable cause"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :organisationCause .
+
+<https://astrea.linkeddata.es/shapes#35fa56014cca558e8981786c1b401a8c>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "time has session"@en ;
+        sh:class          :Session ;
+        sh:name           "time has session"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :timeSession .
+
+<https://astrea.linkeddata.es/shapes#854b84179d1820d1d13e059e996ee574>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "organisation has activity"@en ;
+        sh:class          :Activity ;
+        sh:name           "organisation has activity"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :organisationActivity .
+
+<https://astrea.linkeddata.es/shapes#4408a0788ed34c5249c4fd09cd98dea8>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Time"@en ;
+        sh:description    "Any time information related to volunteering activities modeled as a OWL time temporal entity."@en ;
+        sh:name           "Time"@en ;
+        sh:nodeKind       sh:IRI ;
+        sh:property       <https://astrea.linkeddata.es/shapes#35fa56014cca558e8981786c1b401a8c> ;
+        sh:targetClass    :Time .
+
+<https://astrea.linkeddata.es/shapes#f616be19bf46b3fae82476244d8d2f61>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has address"@en ;
+        sh:name           "has address"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :address .
+
+<https://astrea.linkeddata.es/shapes#420d7235e1a28305efa04934c46e0994>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has latitude"@en , "The WGS84 latitude of a SpatialThing in decimal degrees (see WGS84 Geo Positioning)."@en ;
+        rdfs:seeAlso      <https://www.w3.org/2003/01/geo/wgs84_pos> ;
+        sh:description    "The WGS84 latitude of a SpatialThing in decimal degrees (see WGS84 Geo Positioning)."@en ;
+        sh:name           "has latitude"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :latitude .
+
+<https://astrea.linkeddata.es/shapes#525430c4dced72958bd0bc94dfce10dc>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Session"@en ;
+        sh:description    "A session describes a time and place for an activity that involves volunteers."@en ;
+        sh:name           "Session"@en ;
+        sh:nodeKind       sh:IRI ;
+        sh:property       <https://astrea.linkeddata.es/shapes#a33a44f84f2fe936c70fb3d9ba8b7fe3> , <https://astrea.linkeddata.es/shapes#5ba097c42f10e9b9a1aead4acf8673dd> , <https://astrea.linkeddata.es/shapes#6adb3e1427cc0f0abc8c54cb64a29dff> ;
+        sh:targetClass    :Session .
+
+<https://astrea.linkeddata.es/shapes#5ef0d9edf06df84fd07684ab23d9ba9b>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "role has minimum age"@en ;
+        sh:name           "role has minimum age"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :roleMinimumAge .
+
+<https://astrea.linkeddata.es/shapes#c34f5cff1160876128ebcc005101b571>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "activity has role"@en ;
+        sh:class          :Role ;
+        sh:name           "activity has role"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :activityRole .
+
+<https://astrea.linkeddata.es/shapes#a40ea6428a2cab948ffdff7a044ecc2d>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "role has requirement"@en ;
+        sh:class          :Requirement ;
+        sh:name           "role has requirement"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :roleRequirement .
+
+<https://astrea.linkeddata.es/shapes#4b699fdd1ef61fa45e9acc7fee899e75>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has session"@en ;
+        sh:class          :Session ;
+        sh:name           "has session"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :session .
+
+<https://astrea.linkeddata.es/shapes#61797a7e1424863b33155c52c217583b>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has longitude"@en , "The WGS84 longitude of a SpatialThing in decimal degrees (see WGS84 Geo Positioning)."@en ;
+        rdfs:seeAlso      <https://www.w3.org/2003/01/geo/wgs84_pos> ;
+        sh:description    "The WGS84 longitude of a SpatialThing in decimal degrees (see WGS84 Geo Positioning)."@en ;
+        sh:name           "has longitude"@en ;
+        sh:nodeKind       sh:Literal ;
+        sh:path           :longitude .
+
+<https://astrea.linkeddata.es/shapes#f43d2da3edcf768b75a6858280588018>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has organisation"@en ;
+        sh:class          :Organisation ;
+        sh:name           "has organisation"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :organisation .

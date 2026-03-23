@@ -1,0 +1,772 @@
+@prefix volunteer-shapes: <https://solidproject.org/shapes/volunteer#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix vs: <http://www.w3.org/2006/VS/terms/>.
+@prefix dc: <http://purl.org/dc/terms/>.
+@prefix prov: <http://www.w3.org/ns/prov#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+
+volunteer-shapes:AccessibilityInformationHasRole sh:type sh:PropertyShape;
+    rdfs:label "accessibility information has role";
+    sh:codeIdentifier "AccessibilityInformationHasRole";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Role>;
+    sh:name "accessibility information has role"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/accessibilityRole>.
+
+volunteer-shapes:RewardHasRole sh:type sh:PropertyShape;
+    rdfs:label "reward has role";
+    sh:codeIdentifier "RewardHasRole";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Role>;
+    sh:name "reward has role"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/rewardRole>.
+
+volunteer-shapes:ActivityRequiresEmergencyParticipation sh:type sh:PropertyShape;
+    rdfs:label "activity requires emergency participation";
+    sh:codeIdentifier "ActivityRequiresEmergencyParticipation";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:datatype xsd:boolean;
+    sh:name "activity requires emergency participation"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/activityRequiresEmergencyParticipation>.
+
+volunteer-shapes:SessionHasActivity sh:type sh:PropertyShape;
+    rdfs:label "session has activity";
+    sh:codeIdentifier "SessionHasActivity";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Activity>;
+    sh:name "session has activity"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/sessionActivity>.
+
+volunteer-shapes:HasCommitment sh:type sh:PropertyShape;
+    rdfs:label "has commitment";
+    sh:codeIdentifier "HasCommitment";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:description "Free text description of the expected commitment to the role (e.g. 4 hours per week)."@en;
+    sh:name "has commitment"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/commitment>.
+
+volunteer-shapes:HasGeometry sh:type sh:PropertyShape;
+    rdfs:label "has Geometry";
+    sh:codeIdentifier "HasGeometry";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    rdfs:seeAlso <https://opengeospatial.github.io/ogc-geosparql/>;
+    sh:description "A geometry represents the spatial extent of a location (see OGC GeoSPARQL)."@en;
+    sh:name "has Geometry"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/geometry>.
+
+volunteer-shapes:OrganisationHasImage sh:type sh:PropertyShape;
+    rdfs:label "organisation has image";
+    sh:codeIdentifier "OrganisationHasImage";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "organisation has image"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/organisationImage>.
+
+volunteer-shapes:CharitableCauseHasOrganisation sh:type sh:PropertyShape;
+    rdfs:label "charitable cause has organisation";
+    sh:codeIdentifier "CharitableCauseHasOrganisation";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Organisation>;
+    sh:name "charitable cause has organisation"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/causeOrganisation>.
+
+volunteer-shapes:HasCharityNumber sh:type sh:PropertyShape;
+    rdfs:label "has charity number";
+    sh:codeIdentifier "HasCharityNumber";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "has charity number"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/charityNumber>.
+
+volunteer-shapes:LocationHasLongitude sh:type sh:PropertyShape;
+    rdfs:label "location has longitude";
+    sh:codeIdentifier "LocationHasLongitude";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "location has longitude"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/locationLongitude>.
+
+volunteer-shapes:HasWebsite sh:type sh:PropertyShape;
+    rdfs:label "has website";
+    sh:codeIdentifier "HasWebsite";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "has website"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/website>.
+
+volunteer-shapes:RoleAllowsRemoteParticipation sh:type sh:PropertyShape;
+    rdfs:label "role allows remote participation";
+    sh:codeIdentifier "RoleAllowsRemoteParticipation";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:datatype xsd:boolean;
+    sh:name "role allows remote participation"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/roleAllowsRemoteParticipation>.
+
+volunteer-shapes:HasTime sh:type sh:PropertyShape;
+    rdfs:label "has time";
+    sh:codeIdentifier "HasTime";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Time>;
+    sh:name "has time"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/time>.
+
+volunteer-shapes:RoleHasDescription sh:type sh:PropertyShape;
+    rdfs:label "role has description";
+    sh:codeIdentifier "RoleHasDescription";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "role has description"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/roleDescription>.
+
+volunteer-shapes:LocationHasGeometry sh:type sh:PropertyShape;
+    rdfs:label "location has Geometry";
+    sh:codeIdentifier "LocationHasGeometry";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "location has Geometry"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/locationGeometry>.
+
+volunteer-shapes:SessionHasLocation sh:type sh:PropertyShape;
+    rdfs:label "session has location";
+    sh:codeIdentifier "SessionHasLocation";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Location>;
+    sh:name "session has location"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/sessionLocation>.
+
+volunteer-shapes:HasActivity sh:type sh:PropertyShape;
+    rdfs:label "has activity";
+    sh:codeIdentifier "HasActivity";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Activity>;
+    sh:name "has activity"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/activity>.
+
+volunteer-shapes:HasRequirement sh:type sh:PropertyShape;
+    rdfs:label "has requirement";
+    sh:codeIdentifier "HasRequirement";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "has requirement"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/requirement>.
+
+volunteer-shapes:OrganisationHasWebsite sh:type sh:PropertyShape;
+    rdfs:label "organisation has website";
+    sh:codeIdentifier "OrganisationHasWebsite";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "organisation has website"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/organisationWebsite>.
+
+volunteer-shapes:RequiresEmergencyParticipation sh:type sh:PropertyShape;
+    rdfs:label "requires emergency participation";
+    sh:codeIdentifier "RequiresEmergencyParticipation";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "requires emergency participation"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/requiresEmergencyParticipation>.
+
+volunteer-shapes:HasLocation sh:type sh:PropertyShape;
+    rdfs:label "has location";
+    sh:codeIdentifier "HasLocation";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Location>;
+    sh:name "has location"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/location>.
+
+volunteer-shapes:HasAccessibilityInformation sh:type sh:PropertyShape;
+    rdfs:label "has accessibility information";
+    sh:codeIdentifier "HasAccessibilityInformation";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "has accessibility information"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/accessbibility>.
+
+volunteer-shapes:RoleHasTitle sh:type sh:PropertyShape;
+    rdfs:label "role has title";
+    sh:codeIdentifier "RoleHasTitle";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "role has title"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/roleTitle>.
+
+volunteer-shapes:HasImage sh:type sh:PropertyShape;
+    rdfs:label "has Image";
+    sh:codeIdentifier "HasImage";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    rdfs:seeAlso <https://opengeospatial.github.io/ogc-geosparql/>;
+    sh:description "An image URL which can be used to present something related to volunteering."@en;
+    sh:name "has Image"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/image>.
+
+volunteer-shapes:LocationHasLatitude sh:type sh:PropertyShape;
+    rdfs:label "location has latitude";
+    sh:codeIdentifier "LocationHasLatitude";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "location has latitude"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/locationLatitude>.
+
+volunteer-shapes:AllowsRemoteParticipation sh:type sh:PropertyShape;
+    rdfs:label "allows remote participation";
+    sh:codeIdentifier "AllowsRemoteParticipation";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "allows remote participation"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/allowsRemoteParticipation>.
+
+volunteer-shapes:HasMaximumAge sh:type sh:PropertyShape;
+    rdfs:label "has maximum age";
+    sh:codeIdentifier "HasMaximumAge";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "has maximum age"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/maximumAge>.
+
+volunteer-shapes:HasName sh:type sh:PropertyShape;
+    rdfs:label "has name";
+    sh:codeIdentifier "HasName";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "has name"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/name>.
+
+volunteer-shapes:LocationHasAddress sh:type sh:PropertyShape;
+    rdfs:label "location has address";
+    sh:codeIdentifier "LocationHasAddress";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "location has address"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/locationAddress>.
+
+volunteer-shapes:RoleHasCommitment sh:type sh:PropertyShape;
+    rdfs:label "role has commitment";
+    sh:codeIdentifier "RoleHasCommitment";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "role has commitment"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/roleCommitment>.
+
+volunteer-shapes:RoleHasSkill sh:type sh:PropertyShape;
+    rdfs:label "role has skill";
+    sh:codeIdentifier "RoleHasSkill";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Skill>;
+    sh:name "role has skill"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/roleSkill>.
+
+volunteer-shapes:OrganisationHasName sh:type sh:PropertyShape;
+    rdfs:label "organisation has name";
+    sh:codeIdentifier "OrganisationHasName";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "organisation has name"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/organisationName>.
+
+volunteer-shapes:RequirementHasRole sh:type sh:PropertyShape;
+    rdfs:label "requirement has role";
+    sh:codeIdentifier "RequirementHasRole";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Role>;
+    sh:name "requirement has role"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/requirementRole>.
+
+volunteer-shapes:RoleHasApplyLink sh:type sh:PropertyShape;
+    rdfs:label "role has apply link";
+    sh:codeIdentifier "RoleHasApplyLink";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "role has apply link"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/roleApplyLink>.
+
+volunteer-shapes:HasSkill sh:type sh:PropertyShape;
+    rdfs:label "has skill";
+    sh:codeIdentifier "HasSkill";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "has skill"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/skill>.
+
+volunteer-shapes:ActivityHasImage sh:type sh:PropertyShape;
+    rdfs:label "activity has image";
+    sh:codeIdentifier "ActivityHasImage";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "activity has image"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/activityImage>.
+
+volunteer-shapes:ActivityHasTitle sh:type sh:PropertyShape;
+    rdfs:label "activity has title";
+    sh:codeIdentifier "ActivityHasTitle";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "activity has title"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/activityTitle>.
+
+volunteer-shapes:RoleHasActivity sh:type sh:PropertyShape;
+    rdfs:label "role has activity";
+    sh:codeIdentifier "RoleHasActivity";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Activity>;
+    sh:name "role has activity"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/roleActivity>.
+
+volunteer-shapes:OrganisationHasCharityNumber sh:type sh:PropertyShape;
+    rdfs:label "organisation has charity number";
+    sh:codeIdentifier "OrganisationHasCharityNumber";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "organisation has charity number"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/organisationCharityNumber>.
+
+volunteer-shapes:ActivityHasOrganisation sh:type sh:PropertyShape;
+    rdfs:label "activity has organisation";
+    sh:codeIdentifier "ActivityHasOrganisation";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Organisation>;
+    sh:name "activity has organisation"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/activityOrganisation>.
+
+volunteer-shapes:RoleHasMaximumAge sh:type sh:PropertyShape;
+    rdfs:label "role has maximum age";
+    sh:codeIdentifier "RoleHasMaximumAge";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "role has maximum age"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/roleMaximumAge>.
+
+volunteer-shapes:LocationHasName sh:type sh:PropertyShape;
+    rdfs:label "location has name";
+    sh:codeIdentifier "LocationHasName";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "location has name"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/locationName>.
+
+volunteer-shapes:SessionHasTime sh:type sh:PropertyShape;
+    rdfs:label "session has time";
+    sh:codeIdentifier "SessionHasTime";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Time>;
+    sh:name "session has time"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/sessionTime>.
+
+volunteer-shapes:ActivityHasSession sh:type sh:PropertyShape;
+    rdfs:label "activity has session";
+    sh:codeIdentifier "ActivityHasSession";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Session>;
+    sh:name "activity has session"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/activitySession>.
+
+volunteer-shapes:HasApplyLink sh:type sh:PropertyShape;
+    rdfs:label "has apply link";
+    sh:codeIdentifier "HasApplyLink";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "has apply link"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/applyLink>.
+
+volunteer-shapes:HasTitle sh:type sh:PropertyShape;
+    rdfs:label "has title";
+    sh:codeIdentifier "HasTitle";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "has title"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/title>.
+
+volunteer-shapes:RoleHasAccessibility sh:type sh:PropertyShape;
+    rdfs:label "role has accessibility";
+    sh:codeIdentifier "RoleHasAccessibility";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Accessibility>;
+    sh:name "role has accessibility"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/roleAccessibility>.
+
+volunteer-shapes:HasDescription sh:type sh:PropertyShape;
+    rdfs:label "has description";
+    sh:codeIdentifier "HasDescription";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "has description"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/description>.
+
+volunteer-shapes:HasReward sh:type sh:PropertyShape;
+    rdfs:label "has reward";
+    sh:codeIdentifier "HasReward";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "has reward"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/reward>.
+
+volunteer-shapes:ActivityHasDescription sh:type sh:PropertyShape;
+    rdfs:label "activity has description";
+    sh:codeIdentifier "ActivityHasDescription";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "activity has description"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/activityDescription>.
+
+volunteer-shapes:HasCause sh:type sh:PropertyShape;
+    rdfs:label "has cause";
+    sh:codeIdentifier "HasCause";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "has cause"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/cause>.
+
+volunteer-shapes:HasRole sh:type sh:PropertyShape;
+    rdfs:label "has role";
+    sh:codeIdentifier "HasRole";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Role>;
+    sh:name "has role"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/role>.
+
+volunteer-shapes:HasRelatedConcept sh:type sh:PropertyShape;
+    rdfs:label "has related concept";
+    sh:codeIdentifier "HasRelatedConcept";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class skos:Concept, <https://ns.volunteeringdata.io/Concept>;
+    sh:name "has related concept"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/relatedConcept>.
+
+volunteer-shapes:HasMinimumAge sh:type sh:PropertyShape;
+    rdfs:label "has minimum age";
+    sh:codeIdentifier "HasMinimumAge";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "has minimum age"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/minimumAge>.
+
+volunteer-shapes:SkillHasRole sh:type sh:PropertyShape;
+    rdfs:label "skill has role";
+    sh:codeIdentifier "SkillHasRole";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Role>;
+    sh:name "skill has role"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/skillRole>.
+
+volunteer-shapes:SessionHasLocation sh:type sh:PropertyShape;
+    rdfs:label "session has location";
+    sh:codeIdentifier "SessionHasLocation";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Session>;
+    sh:name "session has location"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/locationSession>.
+
+volunteer-shapes:OrganisationHasDescription sh:type sh:PropertyShape;
+    rdfs:label "organisation has description";
+    sh:codeIdentifier "OrganisationHasDescription";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "organisation has description"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/organisationDescription>.
+
+volunteer-shapes:RoleHasReward sh:type sh:PropertyShape;
+    rdfs:label "role has reward";
+    sh:codeIdentifier "RoleHasReward";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Reward>;
+    sh:name "role has reward"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/roleReward>.
+
+volunteer-shapes:OrganisationHasCharitableCause sh:type sh:PropertyShape;
+    rdfs:label "organisation has charitable cause";
+    sh:codeIdentifier "OrganisationHasCharitableCause";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Cause>;
+    sh:name "organisation has charitable cause"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/organisationCause>.
+
+volunteer-shapes:TimeHasSession sh:type sh:PropertyShape;
+    rdfs:label "time has session";
+    sh:codeIdentifier "TimeHasSession";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Session>;
+    sh:name "time has session"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/timeSession>.
+
+volunteer-shapes:OrganisationHasActivity sh:type sh:PropertyShape;
+    rdfs:label "organisation has activity";
+    sh:codeIdentifier "OrganisationHasActivity";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Activity>;
+    sh:name "organisation has activity"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/organisationActivity>.
+
+volunteer-shapes:HasAddress sh:type sh:PropertyShape;
+    rdfs:label "has address";
+    sh:codeIdentifier "HasAddress";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "has address"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/address>.
+
+volunteer-shapes:HasLatitude sh:type sh:PropertyShape;
+    rdfs:label "has latitude";
+    sh:codeIdentifier "HasLatitude";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    rdfs:seeAlso <https://www.w3.org/2003/01/geo/wgs84_pos>;
+    sh:description "The WGS84 latitude of a SpatialThing in decimal degrees (see WGS84 Geo Positioning)."@en;
+    sh:name "has latitude"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/latitude>.
+
+volunteer-shapes:RoleHasMinimumAge sh:type sh:PropertyShape;
+    rdfs:label "role has minimum age";
+    sh:codeIdentifier "RoleHasMinimumAge";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:name "role has minimum age"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/roleMinimumAge>.
+
+volunteer-shapes:ActivityHasRole sh:type sh:PropertyShape;
+    rdfs:label "activity has role";
+    sh:codeIdentifier "ActivityHasRole";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Role>;
+    sh:name "activity has role"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/activityRole>.
+
+volunteer-shapes:RoleHasRequirement sh:type sh:PropertyShape;
+    rdfs:label "role has requirement";
+    sh:codeIdentifier "RoleHasRequirement";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Requirement>;
+    sh:name "role has requirement"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/roleRequirement>.
+
+volunteer-shapes:HasSession sh:type sh:PropertyShape;
+    rdfs:label "has session";
+    sh:codeIdentifier "HasSession";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Session>;
+    sh:name "has session"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/session>.
+
+volunteer-shapes:HasLongitude sh:type sh:PropertyShape;
+    rdfs:label "has longitude";
+    sh:codeIdentifier "HasLongitude";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    rdfs:seeAlso <https://www.w3.org/2003/01/geo/wgs84_pos>;
+    sh:description "The WGS84 longitude of a SpatialThing in decimal degrees (see WGS84 Geo Positioning)."@en;
+    sh:name "has longitude"@en;
+    sh:nodeKind sh:Literal;
+    sh:path <https://ns.volunteeringdata.io/longitude>.
+
+volunteer-shapes:HasOrganisation sh:type sh:PropertyShape;
+    rdfs:label "has organisation";
+    sh:codeIdentifier "HasOrganisation";
+    a sh:PropertyShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:class <https://ns.volunteeringdata.io/Organisation>;
+    sh:name "has organisation"@en;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:path <https://ns.volunteeringdata.io/organisation>.
+
+volunteer-shapes:LocationShape sh:type sh:NodeShape;
+    rdfs:label "Location";
+    dc:created "2026-03-23"^^xsd:date;
+    vs:term_status "testing";
+    dc:source <https://api.volunteeringdata.io/schema.ttl>;
+    prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
+    a sh:NodeShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:description "Any location related to volunteering activities."@en;
+    sh:name "Location"@en;
+    sh:nodeKind sh:IRI;
+    sh:property volunteer-shapes:SessionHasLocation;
+    sh:targetClass <https://ns.volunteeringdata.io/Location>;
+    sh:codeIdentifier "Location".
+
+volunteer-shapes:OrganisationShape sh:type sh:NodeShape;
+    rdfs:label "Organisation";
+    dc:created "2026-03-23"^^xsd:date;
+    vs:term_status "testing";
+    dc:source <https://api.volunteeringdata.io/schema.ttl>;
+    prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
+    a sh:NodeShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:description "Any organisation running activities that involve volunteers."@en;
+    sh:name "Organisation"@en;
+    sh:nodeKind sh:IRI;
+    sh:property volunteer-shapes:OrganisationHasCharitableCause, volunteer-shapes:OrganisationHasActivity;
+    sh:targetClass <https://ns.volunteeringdata.io/Organisation>;
+    sh:codeIdentifier "Organisation".
+
+volunteer-shapes:RoleShape sh:type sh:NodeShape;
+    rdfs:label "Role";
+    dc:created "2026-03-23"^^xsd:date;
+    vs:term_status "testing";
+    dc:source <https://api.volunteeringdata.io/schema.ttl>;
+    prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
+    a sh:NodeShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:description "Any kind of role related to a volunteering activity."@en;
+    sh:name "Role"@en;
+    sh:nodeKind sh:IRI;
+    sh:property volunteer-shapes:RoleHasRequirement, volunteer-shapes:RoleHasActivity, volunteer-shapes:RoleAllowsRemoteParticipation, volunteer-shapes:RoleHasReward, volunteer-shapes:RoleHasSkill, volunteer-shapes:RoleHasAccessibility;
+    sh:targetClass <https://ns.volunteeringdata.io/Role>;
+    sh:codeIdentifier "Role".
+
+volunteer-shapes:ActivityShape sh:type sh:NodeShape;
+    rdfs:label "Activity";
+    dc:created "2026-03-23"^^xsd:date;
+    vs:term_status "testing";
+    dc:source <https://api.volunteeringdata.io/schema.ttl>;
+    prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
+    a sh:NodeShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:description "Any kind of activity that involves volunteers."@en;
+    sh:name "Activity"@en;
+    sh:nodeKind sh:IRI;
+    sh:property volunteer-shapes:ActivityHasSession, volunteer-shapes:ActivityRequiresEmergencyParticipation, volunteer-shapes:ActivityHasOrganisation, volunteer-shapes:ActivityHasRole;
+    sh:targetClass <https://ns.volunteeringdata.io/Activity>;
+    sh:codeIdentifier "Activity".
+
+volunteer-shapes:WeekdayTimePeriodShape sh:type sh:NodeShape;
+    rdfs:label "Weekday Time Period";
+    dc:created "2026-03-23"^^xsd:date;
+    vs:term_status "testing";
+    dc:source <https://api.volunteeringdata.io/schema.ttl>;
+    prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
+    a sh:NodeShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:description "A predefined time period within a specific day of the week (morning, afternoon or evening)."@en;
+    sh:name "Weekday Time Period"@en;
+    sh:nodeKind sh:IRI;
+    sh:targetClass <https://ns.volunteeringdata.io/WeekdayTimePeriod>;
+    sh:codeIdentifier "WeekdayTimePeriod".
+
+volunteer-shapes:TimeShape sh:type sh:NodeShape;
+    rdfs:label "Time";
+    dc:created "2026-03-23"^^xsd:date;
+    vs:term_status "testing";
+    dc:source <https://api.volunteeringdata.io/schema.ttl>;
+    prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
+    a sh:NodeShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:description "Any time information related to volunteering activities modeled as a OWL time temporal entity."@en;
+    sh:name "Time"@en;
+    sh:nodeKind sh:IRI;
+    sh:property volunteer-shapes:TimeHasSession;
+    sh:targetClass <https://ns.volunteeringdata.io/Time>;
+    sh:codeIdentifier "Time".
+
+volunteer-shapes:SessionShape sh:type sh:NodeShape;
+    rdfs:label "Session";
+    dc:created "2026-03-23"^^xsd:date;
+    vs:term_status "testing";
+    dc:source <https://api.volunteeringdata.io/schema.ttl>;
+    prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
+    a sh:NodeShape;
+    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
+    sh:description "A session describes a time and place for an activity that involves volunteers."@en;
+    sh:name "Session"@en;
+    sh:nodeKind sh:IRI;
+    sh:property volunteer-shapes:SessionHasLocation, volunteer-shapes:SessionHasActivity, volunteer-shapes:SessionHasTime;
+    sh:targetClass <https://ns.volunteeringdata.io/Session>;
+    sh:codeIdentifier "Session".
