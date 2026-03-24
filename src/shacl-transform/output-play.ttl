@@ -1,3 +1,4 @@
+@prefix : <https://ns.volunteeringdata.io/>.
 @prefix dash: <http://datashapes.org/dash#>.
 @prefix dc: <http://purl.org/dc/terms/>.
 @prefix fn: <http://www.w3.org/2005/xpath-functions#>.
@@ -28,199 +29,199 @@ volunteer-shape:roleRequirement sh:type sh:PropertyShape;
     rdfs:label "roleRequirement";
     sh:codeIdentifier "roleRequirement";
     a sh:PropertyShape;
-    sh:class volunteer-shape:Requirement;
-    sh:path volunteer-shape:roleRequirement.
+    sh:class :Requirement;
+    sh:path :roleRequirement.
 volunteer-shape:activityRequiresEmergencyParticipation sh:type sh:PropertyShape;
     rdfs:label "activityRequiresEmergencyParticipation";
     sh:codeIdentifier "activityRequiresEmergencyParticipation";
     a sh:PropertyShape;
     sh:datatype xsd:boolean;
-    sh:path volunteer-shape:activityRequiresEmergencyParticipation.
+    sh:path :activityRequiresEmergencyParticipation.
 volunteer-shape:sessionActivity sh:type sh:PropertyShape;
     rdfs:label "sessionActivity";
     sh:codeIdentifier "sessionActivity";
     a sh:PropertyShape;
-    sh:class volunteer-shape:Activity;
-    sh:path volunteer-shape:sessionActivity.
+    sh:class :Activity;
+    sh:path :sessionActivity.
 volunteer-shape:roleCommitment sh:type sh:PropertyShape;
     rdfs:label "roleCommitment";
     sh:codeIdentifier "roleCommitment";
     a sh:PropertyShape;
-    sh:path volunteer-shape:roleCommitment.
+    sh:path :roleCommitment.
 volunteer-shape:roleDescription sh:type sh:PropertyShape;
     rdfs:label "roleDescription";
     sh:codeIdentifier "roleDescription";
     a sh:PropertyShape;
-    sh:path volunteer-shape:roleDescription.
+    sh:path :roleDescription.
 volunteer-shape:roleMinimumAge sh:type sh:PropertyShape;
     rdfs:label "roleMinimumAge";
     sh:codeIdentifier "roleMinimumAge";
     a sh:PropertyShape;
-    sh:path volunteer-shape:roleMinimumAge.
+    sh:path :roleMinimumAge.
 volunteer-shape:organisationCharityNumber sh:type sh:PropertyShape;
     rdfs:label "organisationCharityNumber";
     sh:codeIdentifier "organisationCharityNumber";
     a sh:PropertyShape;
-    sh:path volunteer-shape:organisationCharityNumber.
+    sh:path :organisationCharityNumber.
 volunteer-shape:locationAddress sh:type sh:PropertyShape;
     rdfs:label "locationAddress";
     sh:codeIdentifier "locationAddress";
     a sh:PropertyShape;
-    sh:path volunteer-shape:locationAddress.
+    sh:path :locationAddress.
 volunteer-shape:activityTitle sh:type sh:PropertyShape;
     rdfs:label "activityTitle";
     sh:codeIdentifier "activityTitle";
     a sh:PropertyShape;
-    sh:path volunteer-shape:activityTitle.
+    sh:path :activityTitle.
 volunteer-shape:activityRole sh:type sh:PropertyShape;
     rdfs:label "activityRole";
     sh:codeIdentifier "activityRole";
     a sh:PropertyShape;
-    sh:class volunteer-shape:Role;
-    sh:path volunteer-shape:activityRole.
+    sh:class :Role;
+    sh:path :activityRole.
 volunteer-shape:sessionTime sh:type sh:PropertyShape;
     rdfs:label "sessionTime";
     sh:codeIdentifier "sessionTime";
     a sh:PropertyShape;
-    sh:class volunteer-shape:Time;
-    sh:path volunteer-shape:sessionTime.
+    sh:class :Time;
+    sh:path :sessionTime.
 volunteer-shape:organisationName sh:type sh:PropertyShape;
     rdfs:label "organisationName";
     sh:codeIdentifier "organisationName";
     a sh:PropertyShape;
-    sh:path volunteer-shape:organisationName.
+    sh:path :organisationName.
 volunteer-shape:activityDescription sh:type sh:PropertyShape;
     rdfs:label "activityDescription";
     sh:codeIdentifier "activityDescription";
     a sh:PropertyShape;
-    sh:path volunteer-shape:activityDescription.
+    sh:path :activityDescription.
 volunteer-shape:roleAllowsRemoteParticipation sh:type sh:PropertyShape;
     rdfs:label "roleAllowsRemoteParticipation";
     sh:codeIdentifier "roleAllowsRemoteParticipation";
     a sh:PropertyShape;
     sh:datatype xsd:boolean;
-    sh:path volunteer-shape:roleAllowsRemoteParticipation.
+    sh:path :roleAllowsRemoteParticipation.
 volunteer-shape:locationLongitude sh:type sh:PropertyShape;
     rdfs:label "locationLongitude";
     sh:codeIdentifier "locationLongitude";
     a sh:PropertyShape;
-    sh:path volunteer-shape:locationLongitude.
+    sh:path :locationLongitude.
 volunteer-shape:organisationActivity sh:type sh:PropertyShape;
     rdfs:label "organisationActivity";
     sh:codeIdentifier "organisationActivity";
     a sh:PropertyShape;
-    sh:class volunteer-shape:Activity;
-    sh:path volunteer-shape:organisationActivity.
+    sh:class :Activity;
+    sh:path :organisationActivity.
 volunteer-shape:sessionLocation sh:type sh:PropertyShape;
     rdfs:label "sessionLocation";
     sh:codeIdentifier "sessionLocation";
     a sh:PropertyShape;
-    sh:class volunteer-shape:Location;
-    sh:path volunteer-shape:sessionLocation.
+    sh:class :Location;
+    sh:path :sessionLocation.
 volunteer-shape:locationLatitude sh:type sh:PropertyShape;
     rdfs:label "locationLatitude";
     sh:codeIdentifier "locationLatitude";
     a sh:PropertyShape;
-    sh:path volunteer-shape:locationLatitude.
+    sh:path :locationLatitude.
 volunteer-shape:locationSession sh:type sh:PropertyShape;
     rdfs:label "locationSession";
     sh:codeIdentifier "locationSession";
     a sh:PropertyShape;
-    sh:class volunteer-shape:Session;
-    sh:path volunteer-shape:locationSession.
+    sh:class :Session;
+    sh:path :locationSession.
 volunteer-shape:activitySession sh:type sh:PropertyShape;
     rdfs:label "activitySession";
     sh:codeIdentifier "activitySession";
     a sh:PropertyShape;
-    sh:class volunteer-shape:Session;
-    sh:path volunteer-shape:activitySession.
+    sh:class :Session;
+    sh:path :activitySession.
 volunteer-shape:roleMaximumAge sh:type sh:PropertyShape;
     rdfs:label "roleMaximumAge";
     sh:codeIdentifier "roleMaximumAge";
     a sh:PropertyShape;
-    sh:path volunteer-shape:roleMaximumAge.
+    sh:path :roleMaximumAge.
 volunteer-shape:roleSkill sh:type sh:PropertyShape;
     rdfs:label "roleSkill";
     sh:codeIdentifier "roleSkill";
     a sh:PropertyShape;
-    sh:class volunteer-shape:Skill;
-    sh:path volunteer-shape:roleSkill.
+    sh:class :Skill;
+    sh:path :roleSkill.
 volunteer-shape:organisationDescription sh:type sh:PropertyShape;
     rdfs:label "organisationDescription";
     sh:codeIdentifier "organisationDescription";
     a sh:PropertyShape;
-    sh:path volunteer-shape:organisationDescription.
+    sh:path :organisationDescription.
 volunteer-shape:roleAccessibility sh:type sh:PropertyShape;
     rdfs:label "roleAccessibility";
     sh:codeIdentifier "roleAccessibility";
     a sh:PropertyShape;
-    sh:class volunteer-shape:Accessibility;
-    sh:path volunteer-shape:roleAccessibility.
+    sh:class :Accessibility;
+    sh:path :roleAccessibility.
 volunteer-shape:organisationCause sh:type sh:PropertyShape;
     rdfs:label "organisationCause";
     sh:codeIdentifier "organisationCause";
     a sh:PropertyShape;
-    sh:class volunteer-shape:Cause;
-    sh:path volunteer-shape:organisationCause.
+    sh:class :Cause;
+    sh:path :organisationCause.
 volunteer-shape:roleTitle sh:type sh:PropertyShape;
     rdfs:label "roleTitle";
     sh:codeIdentifier "roleTitle";
     a sh:PropertyShape;
-    sh:path volunteer-shape:roleTitle.
+    sh:path :roleTitle.
 volunteer-shape:organisationImage sh:type sh:PropertyShape;
     rdfs:label "organisationImage";
     sh:codeIdentifier "organisationImage";
     a sh:PropertyShape;
-    sh:path volunteer-shape:organisationImage.
+    sh:path :organisationImage.
 volunteer-shape:organisationWebsite sh:type sh:PropertyShape;
     rdfs:label "organisationWebsite";
     sh:codeIdentifier "organisationWebsite";
     a sh:PropertyShape;
-    sh:path volunteer-shape:organisationWebsite.
+    sh:path :organisationWebsite.
 volunteer-shape:roleApplyLink sh:type sh:PropertyShape;
     rdfs:label "roleApplyLink";
     sh:codeIdentifier "roleApplyLink";
     a sh:PropertyShape;
-    sh:path volunteer-shape:roleApplyLink.
+    sh:path :roleApplyLink.
 volunteer-shape:locationName sh:type sh:PropertyShape;
     rdfs:label "locationName";
     sh:codeIdentifier "locationName";
     a sh:PropertyShape;
-    sh:path volunteer-shape:locationName.
+    sh:path :locationName.
 volunteer-shape:roleReward sh:type sh:PropertyShape;
     rdfs:label "roleReward";
     sh:codeIdentifier "roleReward";
     a sh:PropertyShape;
-    sh:class volunteer-shape:Reward;
-    sh:path volunteer-shape:roleReward.
+    sh:class :Reward;
+    sh:path :roleReward.
 volunteer-shape:roleActivity sh:type sh:PropertyShape;
     rdfs:label "roleActivity";
     sh:codeIdentifier "roleActivity";
     a sh:PropertyShape;
-    sh:class volunteer-shape:Activity;
-    sh:path volunteer-shape:roleActivity.
+    sh:class :Activity;
+    sh:path :roleActivity.
 volunteer-shape:activityImage sh:type sh:PropertyShape;
     rdfs:label "activityImage";
     sh:codeIdentifier "activityImage";
     a sh:PropertyShape;
-    sh:path volunteer-shape:activityImage.
+    sh:path :activityImage.
 volunteer-shape:locationGeometry sh:type sh:PropertyShape;
     rdfs:label "locationGeometry";
     sh:codeIdentifier "locationGeometry";
     a sh:PropertyShape;
-    sh:path volunteer-shape:locationGeometry.
+    sh:path :locationGeometry.
 volunteer-shape:activityOrganisation sh:type sh:PropertyShape;
     rdfs:label "activityOrganisation";
     sh:codeIdentifier "activityOrganisation";
     a sh:PropertyShape;
-    sh:class volunteer-shape:Organisation;
-    sh:path volunteer-shape:activityOrganisation.
+    sh:class :Organisation;
+    sh:path :activityOrganisation.
 volunteer-shape:timeSession sh:type sh:PropertyShape;
     rdfs:label "timeSession";
     sh:codeIdentifier "timeSession";
     a sh:PropertyShape;
-    sh:class volunteer-shape:Session;
-    sh:path volunteer-shape:timeSession.
+    sh:class :Session;
+    sh:path :timeSession.
 volunteer-shape:ActivityHasDescription sh:type sh:NodeShape;
     rdfs:label "activityDescription-shape";
     dc:created "2026-03-23"^^xsd:date;
@@ -228,8 +229,8 @@ volunteer-shape:ActivityHasDescription sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Activity;
-    sh:targetSubjectsOf volunteer-shape:activityDescription;
+    sh:class :Activity;
+    sh:targetSubjectsOf :activityDescription;
     sh:codeIdentifier "VolunteeractivityHasDescription".
 volunteer-shape:RequirementHasRole sh:type sh:NodeShape;
     rdfs:label "requirementRole-shape";
@@ -238,8 +239,8 @@ volunteer-shape:RequirementHasRole sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Requirement;
-    sh:targetSubjectsOf volunteer-shape:requirementRole;
+    sh:class :Requirement;
+    sh:targetSubjectsOf :requirementRole;
     sh:codeIdentifier "VolunteerrequirementHasRole".
 volunteer-shape:RoleHasTitle sh:type sh:NodeShape;
     rdfs:label "roleTitle-shape";
@@ -248,8 +249,8 @@ volunteer-shape:RoleHasTitle sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Role;
-    sh:targetSubjectsOf volunteer-shape:roleTitle;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleTitle;
     sh:codeIdentifier "VolunteerroleHasTitle".
 volunteer-shape:RoleHasActivity sh:type sh:NodeShape;
     rdfs:label "roleActivity-shape";
@@ -258,8 +259,8 @@ volunteer-shape:RoleHasActivity sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Role;
-    sh:targetSubjectsOf volunteer-shape:roleActivity;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleActivity;
     sh:codeIdentifier "VolunteerroleHasActivity".
 volunteer-shape:RewardHasRole sh:type sh:NodeShape;
     rdfs:label "rewardRole-shape";
@@ -268,8 +269,8 @@ volunteer-shape:RewardHasRole sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Reward;
-    sh:targetSubjectsOf volunteer-shape:rewardRole;
+    sh:class :Reward;
+    sh:targetSubjectsOf :rewardRole;
     sh:codeIdentifier "VolunteerrewardHasRole".
 volunteer-shape:ActivityHasTitle sh:type sh:NodeShape;
     rdfs:label "activityTitle-shape";
@@ -278,8 +279,8 @@ volunteer-shape:ActivityHasTitle sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Activity;
-    sh:targetSubjectsOf volunteer-shape:activityTitle;
+    sh:class :Activity;
+    sh:targetSubjectsOf :activityTitle;
     sh:codeIdentifier "VolunteeractivityHasTitle".
 volunteer-shape:SessionHasTime sh:type sh:NodeShape;
     rdfs:label "sessionTime-shape";
@@ -288,8 +289,8 @@ volunteer-shape:SessionHasTime sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Session;
-    sh:targetSubjectsOf volunteer-shape:sessionTime;
+    sh:class :Session;
+    sh:targetSubjectsOf :sessionTime;
     sh:codeIdentifier "VolunteersessionHasTime".
 volunteer-shape:TimeHasSession sh:type sh:NodeShape;
     rdfs:label "timeSession-shape";
@@ -298,8 +299,8 @@ volunteer-shape:TimeHasSession sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Time;
-    sh:targetSubjectsOf volunteer-shape:timeSession;
+    sh:class :Time;
+    sh:targetSubjectsOf :timeSession;
     sh:codeIdentifier "VolunteertimeHasSession".
 volunteer-shape:Activity sh:type sh:NodeShape;
     rdfs:label "Activity";
@@ -326,8 +327,8 @@ volunteer-shape:OrganisationHasCharityNumber sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Organisation;
-    sh:targetSubjectsOf volunteer-shape:organisationCharityNumber;
+    sh:class :Organisation;
+    sh:targetSubjectsOf :organisationCharityNumber;
     sh:codeIdentifier "VolunteerorganisationHasCharityNumber".
 volunteer-shape:ActivityHasSession sh:type sh:NodeShape;
     rdfs:label "activitySession-shape";
@@ -336,8 +337,8 @@ volunteer-shape:ActivityHasSession sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Activity;
-    sh:targetSubjectsOf volunteer-shape:activitySession;
+    sh:class :Activity;
+    sh:targetSubjectsOf :activitySession;
     sh:codeIdentifier "VolunteeractivityHasSession".
 volunteer-shape:RoleHasReward sh:type sh:NodeShape;
     rdfs:label "roleReward-shape";
@@ -346,8 +347,8 @@ volunteer-shape:RoleHasReward sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Role;
-    sh:targetSubjectsOf volunteer-shape:roleReward;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleReward;
     sh:codeIdentifier "VolunteerroleHasReward".
 volunteer-shape:OrganisationHasDescription sh:type sh:NodeShape;
     rdfs:label "organisationDescription-shape";
@@ -356,8 +357,8 @@ volunteer-shape:OrganisationHasDescription sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Organisation;
-    sh:targetSubjectsOf volunteer-shape:organisationDescription;
+    sh:class :Organisation;
+    sh:targetSubjectsOf :organisationDescription;
     sh:codeIdentifier "VolunteerorganisationHasDescription".
 volunteer-shape:RoleHasDescription sh:type sh:NodeShape;
     rdfs:label "roleDescription-shape";
@@ -366,8 +367,8 @@ volunteer-shape:RoleHasDescription sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Role;
-    sh:targetSubjectsOf volunteer-shape:roleDescription;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleDescription;
     sh:codeIdentifier "VolunteerroleHasDescription".
 volunteer-shape:Location sh:type sh:NodeShape;
     rdfs:label "Location";
@@ -385,8 +386,8 @@ volunteer-shape:LocationHasLongitude sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Location;
-    sh:targetSubjectsOf volunteer-shape:locationLongitude;
+    sh:class :Location;
+    sh:targetSubjectsOf :locationLongitude;
     sh:codeIdentifier "VolunteerlocationHasLongitude".
 volunteer-shape:ActivityHasRole sh:type sh:NodeShape;
     rdfs:label "activityRole-shape";
@@ -395,8 +396,8 @@ volunteer-shape:ActivityHasRole sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Activity;
-    sh:targetSubjectsOf volunteer-shape:activityRole;
+    sh:class :Activity;
+    sh:targetSubjectsOf :activityRole;
     sh:codeIdentifier "VolunteeractivityHasRole".
 volunteer-shape:CharitableCauseHasOrganisation sh:type sh:NodeShape;
     rdfs:label "causeOrganisation-shape";
@@ -405,8 +406,8 @@ volunteer-shape:CharitableCauseHasOrganisation sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Cause;
-    sh:targetSubjectsOf volunteer-shape:causeOrganisation;
+    sh:class :Cause;
+    sh:targetSubjectsOf :causeOrganisation;
     sh:codeIdentifier "VolunteercharitableCauseHasOrganisation".
 volunteer-shape:RoleHasMinimumAge sh:type sh:NodeShape;
     rdfs:label "roleMinimumAge-shape";
@@ -415,8 +416,8 @@ volunteer-shape:RoleHasMinimumAge sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Role;
-    sh:targetSubjectsOf volunteer-shape:roleMinimumAge;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleMinimumAge;
     sh:codeIdentifier "VolunteerroleHasMinimumAge".
 volunteer-shape:RoleHasAccessibility sh:type sh:NodeShape;
     rdfs:label "roleAccessibility-shape";
@@ -425,8 +426,8 @@ volunteer-shape:RoleHasAccessibility sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Role;
-    sh:targetSubjectsOf volunteer-shape:roleAccessibility;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleAccessibility;
     sh:codeIdentifier "VolunteerroleHasAccessibility".
 volunteer-shape:AccessibilityInformationHasRole sh:type sh:NodeShape;
     rdfs:label "accessibilityRole-shape";
@@ -435,8 +436,8 @@ volunteer-shape:AccessibilityInformationHasRole sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Accessibility;
-    sh:targetSubjectsOf volunteer-shape:accessibilityRole;
+    sh:class :Accessibility;
+    sh:targetSubjectsOf :accessibilityRole;
     sh:codeIdentifier "VolunteeraccessibilityInformationHasRole".
 volunteer-shape:LocationHasAddress sh:type sh:NodeShape;
     rdfs:label "locationAddress-shape";
@@ -445,8 +446,8 @@ volunteer-shape:LocationHasAddress sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Location;
-    sh:targetSubjectsOf volunteer-shape:locationAddress;
+    sh:class :Location;
+    sh:targetSubjectsOf :locationAddress;
     sh:codeIdentifier "VolunteerlocationHasAddress".
 volunteer-shape:Organisation sh:type sh:NodeShape;
     rdfs:label "Organisation";
@@ -464,8 +465,8 @@ volunteer-shape:RoleHasMaximumAge sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Role;
-    sh:targetSubjectsOf volunteer-shape:roleMaximumAge;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleMaximumAge;
     sh:codeIdentifier "VolunteerroleHasMaximumAge".
 volunteer-shape:OrganisationHasName sh:type sh:NodeShape;
     rdfs:label "organisationName-shape";
@@ -474,8 +475,8 @@ volunteer-shape:OrganisationHasName sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Organisation;
-    sh:targetSubjectsOf volunteer-shape:organisationName;
+    sh:class :Organisation;
+    sh:targetSubjectsOf :organisationName;
     sh:codeIdentifier "VolunteerorganisationHasName".
 volunteer-shape:LocationHasName sh:type sh:NodeShape;
     rdfs:label "locationName-shape";
@@ -484,8 +485,8 @@ volunteer-shape:LocationHasName sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Location;
-    sh:targetSubjectsOf volunteer-shape:locationName;
+    sh:class :Location;
+    sh:targetSubjectsOf :locationName;
     sh:codeIdentifier "VolunteerlocationHasName".
 volunteer-shape:RoleHasCommitment sh:type sh:NodeShape;
     rdfs:label "roleCommitment-shape";
@@ -494,8 +495,8 @@ volunteer-shape:RoleHasCommitment sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Role;
-    sh:targetSubjectsOf volunteer-shape:roleCommitment;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleCommitment;
     sh:codeIdentifier "VolunteerroleHasCommitment".
 volunteer-shape:LocationHasLatitude sh:type sh:NodeShape;
     rdfs:label "locationLatitude-shape";
@@ -504,8 +505,8 @@ volunteer-shape:LocationHasLatitude sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Location;
-    sh:targetSubjectsOf volunteer-shape:locationLatitude;
+    sh:class :Location;
+    sh:targetSubjectsOf :locationLatitude;
     sh:codeIdentifier "VolunteerlocationHasLatitude".
 volunteer-shape:SessionHasActivity sh:type sh:NodeShape;
     rdfs:label "sessionActivity-shape";
@@ -514,8 +515,8 @@ volunteer-shape:SessionHasActivity sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Session;
-    sh:targetSubjectsOf volunteer-shape:sessionActivity;
+    sh:class :Session;
+    sh:targetSubjectsOf :sessionActivity;
     sh:codeIdentifier "VolunteersessionHasActivity".
 volunteer-shape:ActivityRequiresEmergencyParticipation sh:type sh:NodeShape;
     rdfs:label "activityRequiresEmergencyParticipation-shape";
@@ -524,8 +525,8 @@ volunteer-shape:ActivityRequiresEmergencyParticipation sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Activity;
-    sh:targetSubjectsOf volunteer-shape:activityRequiresEmergencyParticipation;
+    sh:class :Activity;
+    sh:targetSubjectsOf :activityRequiresEmergencyParticipation;
     sh:codeIdentifier "VolunteeractivityRequiresEmergencyParticipation".
 volunteer-shape:Role sh:type sh:NodeShape;
     rdfs:label "Role";
@@ -543,8 +544,8 @@ volunteer-shape:OrganisationHasCharitableCause sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Organisation;
-    sh:targetSubjectsOf volunteer-shape:organisationCause;
+    sh:class :Organisation;
+    sh:targetSubjectsOf :organisationCause;
     sh:codeIdentifier "VolunteerorganisationHasCharitableCause".
 volunteer-shape:Session sh:type sh:NodeShape;
     rdfs:label "Session";
@@ -562,8 +563,8 @@ volunteer-shape:OrganisationHasImage sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Organisation;
-    sh:targetSubjectsOf volunteer-shape:organisationImage;
+    sh:class :Organisation;
+    sh:targetSubjectsOf :organisationImage;
     sh:codeIdentifier "VolunteerorganisationHasImage".
 volunteer-shape:SessionHasLocation sh:type sh:NodeShape;
     rdfs:label "locationSession-shape";
@@ -572,8 +573,8 @@ volunteer-shape:SessionHasLocation sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Location;
-    sh:targetSubjectsOf volunteer-shape:locationSession;
+    sh:class :Location;
+    sh:targetSubjectsOf :locationSession;
     sh:codeIdentifier "VolunteersessionHasLocation".
 volunteer-shape:ActivityHasImage sh:type sh:NodeShape;
     rdfs:label "activityImage-shape";
@@ -582,8 +583,8 @@ volunteer-shape:ActivityHasImage sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Activity;
-    sh:targetSubjectsOf volunteer-shape:activityImage;
+    sh:class :Activity;
+    sh:targetSubjectsOf :activityImage;
     sh:codeIdentifier "VolunteeractivityHasImage".
 volunteer-shape:OrganisationHasWebsite sh:type sh:NodeShape;
     rdfs:label "organisationWebsite-shape";
@@ -592,8 +593,8 @@ volunteer-shape:OrganisationHasWebsite sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Organisation;
-    sh:targetSubjectsOf volunteer-shape:organisationWebsite;
+    sh:class :Organisation;
+    sh:targetSubjectsOf :organisationWebsite;
     sh:codeIdentifier "VolunteerorganisationHasWebsite".
 volunteer-shape:OrganisationHasActivity sh:type sh:NodeShape;
     rdfs:label "organisationActivity-shape";
@@ -602,8 +603,8 @@ volunteer-shape:OrganisationHasActivity sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Organisation;
-    sh:targetSubjectsOf volunteer-shape:organisationActivity;
+    sh:class :Organisation;
+    sh:targetSubjectsOf :organisationActivity;
     sh:codeIdentifier "VolunteerorganisationHasActivity".
 volunteer-shape:SkillHasRole sh:type sh:NodeShape;
     rdfs:label "skillRole-shape";
@@ -612,8 +613,8 @@ volunteer-shape:SkillHasRole sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Skill;
-    sh:targetSubjectsOf volunteer-shape:skillRole;
+    sh:class :Skill;
+    sh:targetSubjectsOf :skillRole;
     sh:codeIdentifier "VolunteerskillHasRole".
 volunteer-shape:RoleHasRequirement sh:type sh:NodeShape;
     rdfs:label "roleRequirement-shape";
@@ -622,8 +623,8 @@ volunteer-shape:RoleHasRequirement sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Role;
-    sh:targetSubjectsOf volunteer-shape:roleRequirement;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleRequirement;
     sh:codeIdentifier "VolunteerroleHasRequirement".
 volunteer-shape:ActivityHasOrganisation sh:type sh:NodeShape;
     rdfs:label "activityOrganisation-shape";
@@ -632,8 +633,8 @@ volunteer-shape:ActivityHasOrganisation sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Activity;
-    sh:targetSubjectsOf volunteer-shape:activityOrganisation;
+    sh:class :Activity;
+    sh:targetSubjectsOf :activityOrganisation;
     sh:codeIdentifier "VolunteeractivityHasOrganisation".
 volunteer-shape:LocationHasGeometry sh:type sh:NodeShape;
     rdfs:label "locationGeometry-shape";
@@ -642,8 +643,8 @@ volunteer-shape:LocationHasGeometry sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Location;
-    sh:targetSubjectsOf volunteer-shape:locationGeometry;
+    sh:class :Location;
+    sh:targetSubjectsOf :locationGeometry;
     sh:codeIdentifier "VolunteerlocationHasGeometry".
 volunteer-shape:RoleHasApplyLink sh:type sh:NodeShape;
     rdfs:label "roleApplyLink-shape";
@@ -652,8 +653,8 @@ volunteer-shape:RoleHasApplyLink sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Role;
-    sh:targetSubjectsOf volunteer-shape:roleApplyLink;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleApplyLink;
     sh:codeIdentifier "VolunteerroleHasApplyLink".
 volunteer-shape:RoleHasSkill sh:type sh:NodeShape;
     rdfs:label "roleSkill-shape";
@@ -662,8 +663,8 @@ volunteer-shape:RoleHasSkill sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Role;
-    sh:targetSubjectsOf volunteer-shape:roleSkill;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleSkill;
     sh:codeIdentifier "VolunteerroleHasSkill".
 volunteer-shape:SessionHasLocation sh:type sh:NodeShape;
     rdfs:label "sessionLocation-shape";
@@ -672,8 +673,8 @@ volunteer-shape:SessionHasLocation sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Session;
-    sh:targetSubjectsOf volunteer-shape:sessionLocation;
+    sh:class :Session;
+    sh:targetSubjectsOf :sessionLocation;
     sh:codeIdentifier "VolunteersessionHasLocation".
 volunteer-shape:RoleAllowsRemoteParticipation sh:type sh:NodeShape;
     rdfs:label "roleAllowsRemoteParticipation-shape";
@@ -682,6 +683,6 @@ volunteer-shape:RoleAllowsRemoteParticipation sh:type sh:NodeShape;
     dc:source <https://api.volunteeringdata.io/schema.ttl>;
     prov:wasDerivedFrom <https://api.volunteeringdata.io/schema.ttl>;
     a sh:NodeShape;
-    sh:class volunteer-shape:Role;
-    sh:targetSubjectsOf volunteer-shape:roleAllowsRemoteParticipation;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleAllowsRemoteParticipation;
     sh:codeIdentifier "VolunteerroleAllowsRemoteParticipation".

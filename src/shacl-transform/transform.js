@@ -8,6 +8,7 @@ const { namedNode, literal } = DataFactory;
 // ------------------ CONFIG ------------------
 const INPUT = "../../data/astrea/volunteer-shapes.ttl";
 const OUTPUT = "output.ttl";
+const NAME_PREFIX = "volunteer";
 
 const VOL_NS = "https://solidproject.org/shapes/volunteer#";
 
@@ -100,7 +101,7 @@ for (const ns of nodeShapes) {
   if (!label) continue;
 
   const name = pascalCase(label) + "Shape"; // NodeShape names in PascalCase
-  let codeIdentifier = pascalCase(label); // NodeShape codeIdentifier also PascalCase
+  let codeIdentifier = pascalCase(`${NAME_PREFIX} ${label}`); // NodeShape codeIdentifier also PascalCase
   if (["Value", "Type"].includes(codeIdentifier)) codeIdentifier += "Node";
 
   const iri = namedNode(VOL_NS + name);
