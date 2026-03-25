@@ -1,26 +1,34 @@
-import { TermWrapper, ValueMapping, TermMapping } from "rdfjs-wrapper";
+import { TermWrapper, ValueMapping, TermMapping, ObjectMapping } from "rdfjs-wrapper";
+import { VolunteerActivity } from './VolunteerActivity.js';
+import { VolunteerCause } from './VolunteerCause.js';
 
 export class VolunteerOrganisation extends TermWrapper {
 
-  get organisationCharityNumber(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#organisationCharityNumber", ValueMapping.literalToString, TermMapping.stringToLiteral);
+  get organisationHasCharityNumber(): Set<string> {
+    return this.objects("https://ns.volunteeringdata.io/organisationCharityNumber", ValueMapping.literalToString, TermMapping.stringToLiteral);
   }
-  get organisationName(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#organisationName", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get organisationHasName(): Set<string> {
+    return this.objects("https://ns.volunteeringdata.io/organisationName", ValueMapping.literalToString, TermMapping.stringToLiteral);
   }
-  get organisationActivity(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#organisationActivity", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get organisationHasActivity(): Set<VolunteerActivity> {
+    return this.objects("https://ns.volunteeringdata.io/organisationActivity", ObjectMapping.as(VolunteerActivity), ObjectMapping.as(VolunteerActivity));
   }
-  get organisationDescription(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#organisationDescription", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get organisationHasDescription(): Set<string> {
+    return this.objects("https://ns.volunteeringdata.io/organisationDescription", ValueMapping.literalToString, TermMapping.stringToLiteral);
   }
-  get organisationCause(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#organisationCause", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get organisationHasCharitableCause(): Set<VolunteerCause> {
+    return this.objects("https://ns.volunteeringdata.io/organisationCause", ObjectMapping.as(VolunteerCause), ObjectMapping.as(VolunteerCause));
   }
-  get organisationImage(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#organisationImage", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get organisationHasImage(): Set<string> {
+    return this.objects("https://ns.volunteeringdata.io/organisationImage", ValueMapping.literalToString, TermMapping.stringToLiteral);
   }
-  get organisationWebsite(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#organisationWebsite", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get organisationHasWebsite(): Set<string> {
+    return this.objects("https://ns.volunteeringdata.io/organisationWebsite", ValueMapping.literalToString, TermMapping.stringToLiteral);
   }
 }

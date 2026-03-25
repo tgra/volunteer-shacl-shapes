@@ -1,14 +1,19 @@
-import { TermWrapper, ValueMapping, TermMapping } from "rdfjs-wrapper";
+import { TermWrapper, ObjectMapping } from "rdfjs-wrapper";
+import { VolunteerActivity } from './VolunteerActivity.js';
+import { VolunteerLocation } from './VolunteerLocation.js';
+import { VolunteerTime } from './VolunteerTime.js';
 
 export class VolunteerSession extends TermWrapper {
 
-  get sessionActivity(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#sessionActivity", ValueMapping.literalToString, TermMapping.stringToLiteral);
+  get sessionHasActivity(): Set<VolunteerActivity> {
+    return this.objects("https://ns.volunteeringdata.io/sessionActivity", ObjectMapping.as(VolunteerActivity), ObjectMapping.as(VolunteerActivity));
   }
-  get sessionTime(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#sessionTime", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get sessionHasTime(): Set<VolunteerTime> {
+    return this.objects("https://ns.volunteeringdata.io/sessionTime", ObjectMapping.as(VolunteerTime), ObjectMapping.as(VolunteerTime));
   }
-  get sessionLocation(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#sessionLocation", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get sessionHasLocation(): Set<VolunteerLocation> {
+    return this.objects("https://ns.volunteeringdata.io/sessionLocation", ObjectMapping.as(VolunteerLocation), ObjectMapping.as(VolunteerLocation));
   }
 }

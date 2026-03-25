@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "rdfjs-wrapper": "^0.29.0"
+  }
+}

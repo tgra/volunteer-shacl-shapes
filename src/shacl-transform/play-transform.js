@@ -5,12 +5,11 @@ import { pascalCase, camelCase } from "change-case";
 const { namedNode, literal } = DataFactory;
 
 // ------------------ CONFIG ------------------
-const INPUT = "../../data/shacl-play-convert/volunteer-shapes.ttl";
+const INPUT = "../../data/shacl-play-convert/volunteer-shapes-edit.ttl";
 const SKOS_INPUT = "../../volunteer-schema.ttl"; // SKOS file
 const OUTPUT = "output-play.ttl";
 const NAME_PREFIX = "volunteer";
 const REMOVE_STRING = "-https___ns.volunteeringdata.io_";
-const REMOVE_STRING2 = "-shape";
 const VOL_NS = "https://solidproject.org/shapes/volunteer#";
 
 // Metadata
@@ -22,17 +21,9 @@ const DERIVED_FROM = SOURCE_URL;
 // ------------------ UTILS ------------------
 function getObject(subject, predicate, quads) {
   const q = quads.find(
-    (x) =>
-      x.subject.equals(subject) &&
-      x.predicate.value === predicate
+    (x) => x.subject.equals(subject) && x.predicate.value === predicate
   );
   return q ? q.object.value : null;
-}
-
-function getObjects(subject, predicate, quads) {
-  return quads
-    .filter((x) => x.subject.equals(subject) && x.predicate.value === predicate)
-    .map((x) => x.object.value);
 }
 
 function isType(subject, type, quads) {
@@ -44,19 +35,18 @@ function isType(subject, type, quads) {
   );
 }
 
-// Fallback to local name from IRI
 function getLocalName(iri) {
-  if (iri == null) {
-    return null
-  }
+  if (!iri) return null;
   return iri.split(/[#/:]/).pop();
 }
 
+function getSkosEntry(iri) {
+  if (!iri) return null;
+  return skosMap.get(iri) || null;
+}
 
-// Remove unwanted string from an string
-function cleanString(iri, removeString) {
-  if (!iri) return iri;
-  return iri.replace(removeString, "");
+function cleanString(strEdit, removeString) {
+  return strEdit.replace(removeString, "");
 }
 
 // ------------------ LOAD TTL ------------------
@@ -79,13 +69,10 @@ PREFIXES.xsd ??= "http://www.w3.org/2001/XMLSchema#";
 const skosTtl = fs.readFileSync(SKOS_INPUT, "utf8");
 const skosParser = new Parser();
 const skosQuads = skosParser.parse(skosTtl);
-
-
-
 const skosMap = new Map();
 
 for (const q of skosQuads) {
-  const s = q.subject.value; // full IRI
+  const s = q.subject.value;
   if (!skosMap.has(s)) {
     skosMap.set(s, { prefLabel: null, label: null, definition: null, altLabels: [], broader: [] });
   }
@@ -98,22 +85,11 @@ for (const q of skosQuads) {
   else if (p === PREFIXES.skos + "altLabel") entry.altLabels.push(q.object.value);
   else if (p === PREFIXES.skos + "broader") entry.broader.push(q.object.value);
 
-  // Fallback so label is always set
   if (!entry.label && entry.prefLabel) entry.label = entry.prefLabel;
-}
-
-// Helper to get SKOS entry for a given IRI
-function getSkosEntry(iri) {
-  
-  if (iri == null){
-    return null
-  }
-  return skosMap.get(iri) || null;
 }
 
 // ------------------ COLLECT SHAPES ------------------
 const subjects = [...new Set(quads.map((q) => q.subject.value))];
-
 const nodeShapes = [];
 const propertyShapes = [];
 
@@ -126,19 +102,13 @@ for (const s of subjects) {
 // ------------------ MAP IRIs ------------------
 const propMap = new Map();
 for (const ps of propertyShapes) {
-  let label = getObject(ps, PREFIXES.rdfs + "label", quads);
-  if (!label) {
-    const path = getObject(ps, PREFIXES.sh + "path", quads);
-    const skos = path && getSkosEntry(path);
-    const cleanedPath = cleanString(path, REMOVE_STRING); // clean path
-    label = skos?.prefLabel || getLocalName(cleanedPath) || getLocalName(ps.value);
-    label = cleanString(label, REMOVE_STRING);
-    label = cleanString(label, REMOVE_STRING2);
-  }
+  const path = getObject(ps, PREFIXES.sh + "path", quads);
+  const skos = path && getSkosEntry(path);
+  let label = getObject(ps, PREFIXES.rdfs + "label", quads) || skos?.label || skos?.prefLabel || getLocalName(ps.value);
+  label = cleanString(label, REMOVE_STRING);
+  
 
   const name = camelCase(label);
-
-  
   let codeIdentifier = name;
   if (["value", "type"].includes(codeIdentifier)) codeIdentifier += "Prop";
   if (!/^[a-zA-Z_$][0-9a-zA-Z_$]*$/.test(codeIdentifier)) {
@@ -146,128 +116,90 @@ for (const ps of propertyShapes) {
   }
 
   const iri = namedNode(VOL_NS + name);
-  propMap.set(ps.value, { iri, name, codeIdentifier });
+  propMap.set(ps.value, { iri, name, codeIdentifier, skos });
 }
 
 const nodeMap = new Map();
 for (const ns of nodeShapes) {
-  let label = getObject(ns, PREFIXES.rdfs + "label", quads);
-  if (!label) {
-    const target = getObject(ns, PREFIXES.sh + "targetSubjectsOf", quads);
-    const skos = target && getSkosEntry(target);
-    const cleanedTarget = cleanString(target, REMOVE_STRING); // clean target
-    label = skos?.prefLabel || skos?.label || getLocalName(cleanedTarget) || getLocalName(ns.value);
-    label = cleanString(label, REMOVE_STRING);
-    label = cleanString(label, REMOVE_STRING2);
-  }
+  const target = getObject(ns, PREFIXES.sh + "targetSubjectsOf", quads);
+  const skos = target && getSkosEntry(target);
+  let label = getObject(ns, PREFIXES.rdfs + "label", quads) || skos?.label || skos?.prefLabel || getLocalName(ns.value);
+  label = cleanString(label, REMOVE_STRING);
+  
 
   const name = pascalCase(label);
-
-  const iri = namedNode(VOL_NS + name); // name is already cleaned
-
+  const iri = namedNode(VOL_NS + name);
   let codeIdentifier = pascalCase(`${NAME_PREFIX}${label}`);
   if (["Value", "Type"].includes(codeIdentifier)) codeIdentifier = NAME_PREFIX + codeIdentifier;
 
-  nodeMap.set(ns.value, { iri, name, codeIdentifier });
+  nodeMap.set(ns.value, { iri, name, codeIdentifier, skos });
 }
 
 // ------------------ WRITE TTL ------------------
 const writer = new Writer({ prefixes: PREFIXES });
 
-// Write PropertyShapes
-for (const [oldIRI, { iri, name, codeIdentifier }] of propMap) {
-  const subject = namedNode(oldIRI);
+function writeShape(iri, quadsForShape, codeIdentifier) {
+  // Add type triple
+  writer.addQuad(iri, namedNode(PREFIXES.sh + "type"), quadsForShape.type);
 
-  writer.addQuad(iri, namedNode(PREFIXES.sh + "type"), namedNode(PREFIXES.sh + "PropertyShape"));
+  // Label
+  if (quadsForShape.label) {
+    writer.addQuad(iri, namedNode(PREFIXES.rdfs + "label"), literal(quadsForShape.label));
+  }
 
-// Label and comment from SKOS
-const target = getObject(subject, PREFIXES.sh + "targetSubjectsOf", quads);
-const skos = target && getSkosEntry(target);
+  // Comment / definition
+  if (quadsForShape.definition) {
+    writer.addQuad(iri, namedNode(PREFIXES.rdfs + "comment"), literal(quadsForShape.definition));
+  }
 
-const labelValue = skos?.label || getLocalName(subject.value);
-writer.addQuad(iri, namedNode(PREFIXES.rdfs + "label"), literal(labelValue));
-
-if (skos?.definition) {
-  writer.addQuad(iri, namedNode(PREFIXES.rdfs + "comment"), literal(skos.definition));
-}
-  
+  // Code identifier
   writer.addQuad(iri, namedNode(PREFIXES.sh + "codeIdentifier"), literal(codeIdentifier));
 
-  // Copy other quads
-  for (const q of quads.filter((x) => x.subject.equals(subject))) {
-    const p = q.predicate.value;
-    if (
-      p.endsWith("#label") ||
-      p.endsWith("definition") ||
-      p.endsWith("comment") ||
-      p === PREFIXES.sh + "pattern"
-    ) continue;
+  // Copy other triples
+  for (const q of quadsForShape.otherQuads) {
     writer.addQuad(iri, q.predicate, q.object);
   }
+
+  // Flush this shape so it ends with a period
+  writer._write("\n"); // <-- Add blank line after each shape
 }
 
-// Write NodeShapes
+// --- Write PropertyShapes ---
+for (const [oldIRI, { iri, name, codeIdentifier }] of propMap) {
+  const subject = namedNode(oldIRI);
+  const typeQuad = { type: namedNode(PREFIXES.sh + "PropertyShape") };
+  const label = getObject(subject, PREFIXES.rdfs + "label", quads) || getLocalName(subject.value);
+  const definition = null; // or get from SKOS
+  const otherQuads = quads.filter(x => x.subject.equals(subject));
+  writeShape(iri, { type: typeQuad.type, label, definition, otherQuads }, codeIdentifier);
+}
+
+// --- Write NodeShapes ---
 for (const [oldIRI, { iri, name, codeIdentifier }] of nodeMap) {
   const subject = namedNode(oldIRI);
+  const typeQuad = { type: namedNode(PREFIXES.sh + "NodeShape") };
+  const label = getObject(subject, PREFIXES.rdfs + "label", quads) || getLocalName(subject.value);
+  const definition = null; // or get from SKOS
 
-  writer.addQuad(iri, namedNode(PREFIXES.sh + "type"), namedNode(PREFIXES.sh + "NodeShape"));
+  // Map sh:property URLs to PropertyShape IRIs
+  const otherQuads = quads
+    .filter(x => x.subject.equals(subject))
+    .map(q => {
+      if (q.predicate.value === PREFIXES.sh + "property") {
+        const mappedProp = propMap.get(q.object.value);
+        if (mappedProp) {
+          return { predicate: q.predicate, object: mappedProp.iri };
+        }
+      }
+      return q;
+    });
 
-  // Label and comment from SKOS
-const path = getObject(subject, PREFIXES.sh + "path", quads);
-const skos = path && getSkosEntry(path);
-
-const labelValue = skos?.label || getLocalName(subject.value);
-writer.addQuad(iri, namedNode(PREFIXES.rdfs + "label"), literal(labelValue));
-
-if (skos?.definition) {
-  writer.addQuad(iri, namedNode(PREFIXES.rdfs + "comment"), literal(skos.definition));
-}
-
-  writer.addQuad(iri, namedNode(PREFIXES.dc + "created"), literal(CREATED_DATE, namedNode(PREFIXES.xsd + "date")));
-  writer.addQuad(iri, namedNode(PREFIXES.vs + "term_status"), literal(TERM_STATUS));
-  writer.addQuad(iri, namedNode(PREFIXES.dc + "source"), namedNode(SOURCE_URL));
-  writer.addQuad(iri, namedNode(PREFIXES.prov + "wasDerivedFrom"), namedNode(DERIVED_FROM));
-
-  // AltLabels
-  const altLabels = [
-    ...getObjects(subject, PREFIXES.skos + "altLabel", quads),
-    ...(getSkosEntry(getObject(subject, PREFIXES.sh + "targetSubjectsOf", quads))?.altLabels || [])
-  ];
-  for (const alt of altLabels) {
-    writer.addQuad(iri, namedNode(PREFIXES.sh + "alternativeName"), literal(alt));
-  }
-
-  // Broader
-  const broader = [
-    ...getObjects(subject, PREFIXES.skos + "broader", quads),
-    ...(getSkosEntry(getObject(subject, PREFIXES.sh + "targetSubjectsOf", quads))?.broader || [])
-  ];
-  for (const b of broader) {
-    writer.addQuad(iri, namedNode(PREFIXES.skos + "broader"), namedNode(b));
-  }
-
-  // Copy other quads
-  for (const q of quads.filter((x) => x.subject.equals(subject))) {
-    if (q.predicate.value === PREFIXES.sh + "property" && propMap.has(q.object.value)) {
-      writer.addQuad(iri, q.predicate, propMap.get(q.object.value).iri);
-    } else if (!q.predicate.value.endsWith("#label") &&
-               !q.predicate.value.endsWith("definition") &&
-               !q.predicate.value.endsWith("comment")) {
-      writer.addQuad(iri, q.predicate, q.object);
-    }
-  }
-
-  writer.addQuad(iri, namedNode(PREFIXES.sh + "codeIdentifier"), literal(codeIdentifier));
+  writeShape(iri, { type: typeQuad.type, label, definition, otherQuads }, codeIdentifier);
 }
 
 // ------------------ OUTPUT ------------------
 writer.end((err, result) => {
   if (err) return console.error(err);
-
-  const formatted = result
-    .replace(/^(@prefix [^>]+>.)^\n+/g, "$1")
-    .replace(/^(volunteer-shapes.*)$/gm, "\n$1");
-
-  fs.writeFileSync(OUTPUT, formatted);
+  fs.writeFileSync(OUTPUT, result);
   console.log("Done! Output written to", OUTPUT);
 });

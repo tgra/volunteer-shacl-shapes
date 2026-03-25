@@ -1,8 +1,9 @@
-import { TermWrapper, ValueMapping, TermMapping } from "rdfjs-wrapper";
+import { TermWrapper, ObjectMapping } from "rdfjs-wrapper";
+import { VolunteerSession } from './VolunteerSession.js';
 
 export class VolunteerTime extends TermWrapper {
 
-  get timeSession(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#timeSession", ValueMapping.literalToString, TermMapping.stringToLiteral);
+  get timeHasSession(): Set<VolunteerSession> {
+    return this.objects("https://ns.volunteeringdata.io/timeSession", ObjectMapping.as(VolunteerSession), ObjectMapping.as(VolunteerSession));
   }
 }

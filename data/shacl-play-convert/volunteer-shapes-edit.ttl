@@ -1,0 +1,225 @@
+@prefix :                   <https://ns.volunteeringdata.io/> .
+@prefix dash:               <http://datashapes.org/dash#> .
+@prefix dc:                 <http://purl.org/dc/terms/> .
+@prefix fn:                 <http://www.w3.org/2005/xpath-functions#> .
+@prefix geo:                <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geosparql:          <http://www.opengis.net/ont/geosparql#> .
+@prefix graphql:            <http://datashapes.org/graphql#> .
+@prefix id:                 <https://id.volunteeringdata.io/> .
+@prefix og:                 <http://ogp.me/ns#> .
+@prefix owl:                <http://www.w3.org/2002/07/owl#> .
+@prefix owl2sh-semi-closed: <http://data.sparna.fr/ontologies/owl2sh-semi-closed#> .
+@prefix rdf:                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:               <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sesame:             <http://www.openrdf.org/schema/sesame#> .
+@prefix sh:                 <http://www.w3.org/ns/shacl#> .
+@prefix skos:               <http://www.w3.org/2004/02/skos/core#> .
+@prefix spdx:               <http://spdx.org/rdf/terms#> .
+@prefix swa:                <http://topbraid.org/swa#> .
+@prefix time:               <http://www.w3.org/2006/time#> .
+@prefix tosh:               <http://topbraid.org/tosh#> .
+@prefix vann:               <http://purl.org/vocab/vann/> .
+@prefix vcard:              <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd:                <http://www.w3.org/2001/XMLSchema#> .
+
+
+
+:Role-https___ns.volunteeringdata.io_roleRequirement
+        rdf:type  sh:PropertyShape ;
+        sh:class  :Requirement ;
+        sh:path   :roleRequirement .
+
+
+:Activity-https___ns.volunteeringdata.io_activityRequiresEmergencyParticipation
+        rdf:type     sh:PropertyShape ;
+        sh:datatype  xsd:boolean ;
+        sh:path      :activityRequiresEmergencyParticipation .
+
+
+
+:Activity  rdf:type  sh:NodeShape , rdfs:Class ;
+        sh:property  :Activity-https___ns.volunteeringdata.io_activityDescription , :Activity-https___ns.volunteeringdata.io_activityRole , :Activity-https___ns.volunteeringdata.io_activityRequiresEmergencyParticipation , :Activity-https___ns.volunteeringdata.io_activityTitle , :Activity-https___ns.volunteeringdata.io_activityImage , :Activity-https___ns.volunteeringdata.io_activityOrganisation , :Activity-https___ns.volunteeringdata.io_activitySession .
+
+:Session-https___ns.volunteeringdata.io_sessionActivity
+        rdf:type  sh:PropertyShape ;
+        sh:class  :Activity ;
+        sh:path   :sessionActivity .
+
+:Time   rdf:type     rdfs:Class , sh:NodeShape ;
+        sh:property  :Time-https___ns.volunteeringdata.io_timeSession .
+
+
+:Role-https___ns.volunteeringdata.io_roleCommitment
+        rdf:type  sh:PropertyShape ;
+        sh:path   :roleCommitment .
+
+:Role-https___ns.volunteeringdata.io_roleDescription
+        rdf:type  sh:PropertyShape ;
+        sh:path   :roleDescription .
+
+
+:Location  rdf:type  sh:NodeShape , rdfs:Class ;
+        sh:property  :Location-https___ns.volunteeringdata.io_locationGeometry , :Location-https___ns.volunteeringdata.io_locationAddress , :Location-https___ns.volunteeringdata.io_locationSession , :Location-https___ns.volunteeringdata.io_locationLongitude , :Location-https___ns.volunteeringdata.io_locationLatitude , :Location-https___ns.volunteeringdata.io_locationName .
+
+:Role-https___ns.volunteeringdata.io_roleMinimumAge
+        rdf:type  sh:PropertyShape ;
+        sh:path   :roleMinimumAge .
+
+:Organisation-https___ns.volunteeringdata.io_organisationCharityNumber
+        rdf:type  sh:PropertyShape ;
+        sh:path   :organisationCharityNumber .
+
+:Location-https___ns.volunteeringdata.io_locationAddress
+        rdf:type  sh:PropertyShape ;
+        sh:path   :locationAddress .
+
+
+:Activity-https___ns.volunteeringdata.io_activityTitle
+        rdf:type  sh:PropertyShape ;
+        sh:path   :activityTitle .
+
+
+:Activity-https___ns.volunteeringdata.io_activityRole
+        rdf:type  sh:PropertyShape ;
+        sh:class  :Role ;
+        sh:path   :activityRole .
+
+
+:Session-https___ns.volunteeringdata.io_sessionTime
+        rdf:type  sh:PropertyShape ;
+        sh:class  :Time ;
+        sh:path   :sessionTime .
+
+
+:Organisation-https___ns.volunteeringdata.io_organisationName
+        rdf:type  sh:PropertyShape ;
+        sh:path   :organisationName .
+
+
+:Organisation  rdf:type  rdfs:Class , sh:NodeShape ;
+        sh:property  :Organisation-https___ns.volunteeringdata.io_organisationCharityNumber , :Organisation-https___ns.volunteeringdata.io_organisationImage , :Organisation-https___ns.volunteeringdata.io_organisationWebsite , :Organisation-https___ns.volunteeringdata.io_organisationCause , :Organisation-https___ns.volunteeringdata.io_organisationName , :Organisation-https___ns.volunteeringdata.io_organisationActivity , :Organisation-https___ns.volunteeringdata.io_organisationDescription .
+
+:Activity-https___ns.volunteeringdata.io_activityDescription
+        rdf:type  sh:PropertyShape ;
+        sh:path   :activityDescription .
+
+:Role-https___ns.volunteeringdata.io_roleAllowsRemoteParticipation
+        rdf:type     sh:PropertyShape ;
+        sh:datatype  xsd:boolean ;
+        sh:path      :roleAllowsRemoteParticipation .
+
+
+
+:Location-https___ns.volunteeringdata.io_locationLongitude
+        rdf:type  sh:PropertyShape ;
+        sh:path   :locationLongitude .
+
+:Organisation-https___ns.volunteeringdata.io_organisationActivity
+        rdf:type  sh:PropertyShape ;
+        sh:class  :Activity ;
+        sh:path   :organisationActivity .
+
+
+:Session-https___ns.volunteeringdata.io_sessionLocation
+        rdf:type  sh:PropertyShape ;
+        sh:class  :Location ;
+        sh:path   :sessionLocation .
+
+:Location-https___ns.volunteeringdata.io_locationLatitude
+        rdf:type  sh:PropertyShape ;
+        sh:path   :locationLatitude .
+
+:Location-https___ns.volunteeringdata.io_locationSession
+        rdf:type  sh:PropertyShape ;
+        sh:class  :Session ;
+        sh:path   :locationSession .
+
+:Activity-https___ns.volunteeringdata.io_activitySession
+        rdf:type  sh:PropertyShape ;
+        sh:class  :Session ;
+        sh:path   :activitySession .
+
+:Role-https___ns.volunteeringdata.io_roleMaximumAge
+        rdf:type  sh:PropertyShape ;
+        sh:path   :roleMaximumAge .
+
+:Role   rdf:type     rdfs:Class , sh:NodeShape ;
+        sh:property  :Role-https___ns.volunteeringdata.io_roleTitle , :Role-https___ns.volunteeringdata.io_roleDescription , :Role-https___ns.volunteeringdata.io_roleAccessibility , :Role-https___ns.volunteeringdata.io_roleApplyLink , :Role-https___ns.volunteeringdata.io_roleSkill , :Role-https___ns.volunteeringdata.io_roleReward , :Role-https___ns.volunteeringdata.io_roleActivity , :Role-https___ns.volunteeringdata.io_roleRequirement , :Role-https___ns.volunteeringdata.io_roleMinimumAge , :Role-https___ns.volunteeringdata.io_roleCommitment , :Role-https___ns.volunteeringdata.io_roleAllowsRemoteParticipation , :Role-https___ns.volunteeringdata.io_roleMaximumAge .
+
+:Role-https___ns.volunteeringdata.io_roleSkill
+        rdf:type  sh:PropertyShape ;
+        sh:class  :Skill ;
+        sh:path   :roleSkill .
+
+
+:Session  rdf:type   sh:NodeShape , rdfs:Class ;
+        sh:property  :Session-https___ns.volunteeringdata.io_sessionTime , :Session-https___ns.volunteeringdata.io_sessionActivity , :Session-https___ns.volunteeringdata.io_sessionLocation .
+
+
+:Organisation-https___ns.volunteeringdata.io_organisationDescription
+        rdf:type  sh:PropertyShape ;
+        sh:path   :organisationDescription .
+
+:Role-https___ns.volunteeringdata.io_roleAccessibility
+        rdf:type  sh:PropertyShape ;
+        sh:class  :Accessibility ;
+        sh:path   :roleAccessibility .
+
+
+:Organisation-https___ns.volunteeringdata.io_organisationCause
+        rdf:type  sh:PropertyShape ;
+        sh:class  :Cause ;
+        sh:path   :organisationCause .
+
+:Role-https___ns.volunteeringdata.io_roleTitle
+        rdf:type  sh:PropertyShape ;
+        sh:path   :roleTitle .
+
+
+:Organisation-https___ns.volunteeringdata.io_organisationImage
+        rdf:type  sh:PropertyShape ;
+        sh:path   :organisationImage .
+
+
+:Organisation-https___ns.volunteeringdata.io_organisationWebsite
+        rdf:type  sh:PropertyShape ;
+        sh:path   :organisationWebsite .
+
+
+:Role-https___ns.volunteeringdata.io_roleApplyLink
+        rdf:type  sh:PropertyShape ;
+        sh:path   :roleApplyLink .
+
+
+:Location-https___ns.volunteeringdata.io_locationName
+        rdf:type  sh:PropertyShape ;
+        sh:path   :locationName .
+
+
+:Role-https___ns.volunteeringdata.io_roleReward
+        rdf:type  sh:PropertyShape ;
+        sh:class  :Reward ;
+        sh:path   :roleReward .
+
+:Role-https___ns.volunteeringdata.io_roleActivity
+        rdf:type  sh:PropertyShape ;
+        sh:class  :Activity ;
+        sh:path   :roleActivity .
+
+:Activity-https___ns.volunteeringdata.io_activityImage
+        rdf:type  sh:PropertyShape ;
+        sh:path   :activityImage .
+
+:Location-https___ns.volunteeringdata.io_locationGeometry
+        rdf:type  sh:PropertyShape ;
+        sh:path   :locationGeometry .
+
+:Activity-https___ns.volunteeringdata.io_activityOrganisation
+        rdf:type  sh:PropertyShape ;
+        sh:class  :Organisation ;
+        sh:path   :activityOrganisation .
+
+:Time-https___ns.volunteeringdata.io_timeSession
+        rdf:type  sh:PropertyShape ;
+        sh:class  :Session ;
+        sh:path   :timeSession .

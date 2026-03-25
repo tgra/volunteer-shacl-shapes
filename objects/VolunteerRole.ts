@@ -1,41 +1,57 @@
-import { TermWrapper, ValueMapping, TermMapping } from "rdfjs-wrapper";
+import { TermWrapper, ValueMapping, TermMapping, ObjectMapping } from "rdfjs-wrapper";
+import { VolunteerAccessibility } from './VolunteerAccessibility.js';
+import { VolunteerActivity } from './VolunteerActivity.js';
+import { VolunteerRequirement } from './VolunteerRequirement.js';
+import { VolunteerReward } from './VolunteerReward.js';
+import { VolunteerSkill } from './VolunteerSkill.js';
 
 export class VolunteerRole extends TermWrapper {
 
-  get roleRequirement(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#roleRequirement", ValueMapping.literalToString, TermMapping.stringToLiteral);
+  get roleHasRequirement(): Set<VolunteerRequirement> {
+    return this.objects("https://ns.volunteeringdata.io/roleRequirement", ObjectMapping.as(VolunteerRequirement), ObjectMapping.as(VolunteerRequirement));
   }
-  get roleCommitment(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#roleCommitment", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get roleHasCommitment(): Set<string> {
+    return this.objects("https://ns.volunteeringdata.io/roleCommitment", ValueMapping.literalToString, TermMapping.stringToLiteral);
   }
-  get roleDescription(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#roleDescription", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get roleHasDescription(): Set<string> {
+    return this.objects("https://ns.volunteeringdata.io/roleDescription", ValueMapping.literalToString, TermMapping.stringToLiteral);
   }
-  get roleMinimumAge(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#roleMinimumAge", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get roleHasMinimumAge(): Set<string> {
+    return this.objects("https://ns.volunteeringdata.io/roleMinimumAge", ValueMapping.literalToString, TermMapping.stringToLiteral);
   }
+
   get roleAllowsRemoteParticipation(): Set<boolean> {
-    return this.objects("https://solidproject.org/shapes/volunteer#roleAllowsRemoteParticipation", ValueMapping.literalToString, TermMapping.stringToLiteral);
+    return this.objects("https://ns.volunteeringdata.io/roleAllowsRemoteParticipation", ValueMapping.literalToBoolean, TermMapping.booleanToLiteral);
   }
-  get roleMaximumAge(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#roleMaximumAge", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get roleHasMaximumAge(): Set<string> {
+    return this.objects("https://ns.volunteeringdata.io/roleMaximumAge", ValueMapping.literalToString, TermMapping.stringToLiteral);
   }
-  get roleSkill(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#roleSkill", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get roleHasSkill(): Set<VolunteerSkill> {
+    return this.objects("https://ns.volunteeringdata.io/roleSkill", ObjectMapping.as(VolunteerSkill), ObjectMapping.as(VolunteerSkill));
   }
-  get roleAccessibility(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#roleAccessibility", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get roleHasAccessibility(): Set<VolunteerAccessibility> {
+    return this.objects("https://ns.volunteeringdata.io/roleAccessibility", ObjectMapping.as(VolunteerAccessibility), ObjectMapping.as(VolunteerAccessibility));
   }
-  get roleTitle(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#roleTitle", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get roleHasTitle(): Set<string> {
+    return this.objects("https://ns.volunteeringdata.io/roleTitle", ValueMapping.literalToString, TermMapping.stringToLiteral);
   }
-  get roleApplyLink(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#roleApplyLink", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get roleHasApplyLink(): Set<string> {
+    return this.objects("https://ns.volunteeringdata.io/roleApplyLink", ValueMapping.literalToString, TermMapping.stringToLiteral);
   }
-  get roleReward(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#roleReward", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get roleHasReward(): Set<VolunteerReward> {
+    return this.objects("https://ns.volunteeringdata.io/roleReward", ObjectMapping.as(VolunteerReward), ObjectMapping.as(VolunteerReward));
   }
-  get roleActivity(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#roleActivity", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get roleHasActivity(): Set<VolunteerActivity> {
+    return this.objects("https://ns.volunteeringdata.io/roleActivity", ObjectMapping.as(VolunteerActivity), ObjectMapping.as(VolunteerActivity));
   }
 }

@@ -1,26 +1,35 @@
-import { TermWrapper, ValueMapping, TermMapping } from "rdfjs-wrapper";
+import { TermWrapper, ValueMapping, TermMapping, ObjectMapping } from "rdfjs-wrapper";
+import { VolunteerOrganisation } from './VolunteerOrganisation.js';
+import { VolunteerRole } from './VolunteerRole.js';
+import { VolunteerSession } from './VolunteerSession.js';
 
 export class VolunteerActivity extends TermWrapper {
 
   get activityRequiresEmergencyParticipation(): Set<boolean> {
-    return this.objects("https://solidproject.org/shapes/volunteer#activityRequiresEmergencyParticipation", ValueMapping.literalToString, TermMapping.stringToLiteral);
+    return this.objects("https://ns.volunteeringdata.io/activityRequiresEmergencyParticipation", ValueMapping.literalToBoolean, TermMapping.booleanToLiteral);
   }
-  get activityTitle(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#activityTitle", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get activityHasTitle(): Set<string> {
+    return this.objects("https://ns.volunteeringdata.io/activityTitle", ValueMapping.literalToString, TermMapping.stringToLiteral);
   }
-  get activityRole(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#activityRole", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get activityHasRole(): Set<VolunteerRole> {
+    return this.objects("https://ns.volunteeringdata.io/activityRole", ObjectMapping.as(VolunteerRole), ObjectMapping.as(VolunteerRole));
   }
-  get activityDescription(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#activityDescription", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get activityHasDescription(): Set<string> {
+    return this.objects("https://ns.volunteeringdata.io/activityDescription", ValueMapping.literalToString, TermMapping.stringToLiteral);
   }
-  get activitySession(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#activitySession", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get activityHasSession(): Set<VolunteerSession> {
+    return this.objects("https://ns.volunteeringdata.io/activitySession", ObjectMapping.as(VolunteerSession), ObjectMapping.as(VolunteerSession));
   }
-  get activityImage(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#activityImage", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get activityHasImage(): Set<string> {
+    return this.objects("https://ns.volunteeringdata.io/activityImage", ValueMapping.literalToString, TermMapping.stringToLiteral);
   }
-  get activityOrganisation(): Set<string> {
-    return this.objects("https://solidproject.org/shapes/volunteer#activityOrganisation", ValueMapping.literalToString, TermMapping.stringToLiteral);
+
+  get activityHasOrganisation(): Set<VolunteerOrganisation> {
+    return this.objects("https://ns.volunteeringdata.io/activityOrganisation", ObjectMapping.as(VolunteerOrganisation), ObjectMapping.as(VolunteerOrganisation));
   }
 }
