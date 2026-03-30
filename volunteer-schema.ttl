@@ -147,11 +147,14 @@
                    skos:definition "Any accommodations available for volunteers assisted by care professionals.";
                    skos:inScheme :PhysicalAccessibility;
                    skos:prefLabel "Care Professionals".
+
 :Cause a skos:Concept;
        rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
        skos:definition "Any charitable cause related to volunteering activities."@en;
        skos:prefLabel "Cause"@en;
-       skos:topConceptOf :Taxonomy.
+       skos:topConceptOf :Taxonomy
+       .
+
 :CivilRights a skos:Concept;
              rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
              skos:altLabel "Justice"@en,
@@ -1466,7 +1469,7 @@
 :applyLink a owl:DatatypeProperty;
            rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
            rdfs:label "has apply link"@en.
-:cause a owl:ObjectProperty;
+:hasCause a owl:ObjectProperty;
        rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
        rdfs:label "has cause"@en;
        rdfs:subPropertyOf :relatedConcept.
@@ -1572,7 +1575,7 @@
                    rdfs:isDefinedBy <https://ns.volunteeringdata.io/>;
                    rdfs:label "organisation has charitable cause"@en;
                    rdfs:range :Cause;
-                   rdfs:subPropertyOf :cause;
+                   rdfs:subPropertyOf :hasCause;
                    owl:inverseOf :causeOrganisation.
 :organisationCharityNumber a owl:DatatypeProperty;
                            rdfs:domain :Organisation;
