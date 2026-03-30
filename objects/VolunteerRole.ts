@@ -1,4 +1,4 @@
-import { TermWrapper, ValueMapping, TermMapping, ObjectMapping } from "rdfjs-wrapper";
+import { TermWrapper, LiteralAs, LiteralFrom, TermAs, TermFrom } from "@rdfjs/wrapper";
 import { VolunteerAccessibility } from './VolunteerAccessibility.js';
 import { VolunteerActivity } from './VolunteerActivity.js';
 import { VolunteerRequirement } from './VolunteerRequirement.js';
@@ -8,50 +8,50 @@ import { VolunteerSkill } from './VolunteerSkill.js';
 export class VolunteerRole extends TermWrapper {
 
   get roleHasRequirement(): Set<VolunteerRequirement> {
-    return this.objects("https://ns.volunteeringdata.io/roleRequirement", ObjectMapping.as(VolunteerRequirement), ObjectMapping.as(VolunteerRequirement));
+    return this.objects("https://ns.volunteeringdata.io/roleRequirement", TermAs.instance(VolunteerRequirement), TermFrom.instance);
   }
 
   get roleHasCommitment(): Set<string> {
-    return this.objects("https://ns.volunteeringdata.io/roleCommitment", ValueMapping.literalToString, TermMapping.stringToLiteral);
+    return this.objects("https://ns.volunteeringdata.io/roleCommitment", LiteralAs.string, LiteralFrom.string);
   }
 
   get roleHasDescription(): Set<string> {
-    return this.objects("https://ns.volunteeringdata.io/roleDescription", ValueMapping.literalToString, TermMapping.stringToLiteral);
+    return this.objects("https://ns.volunteeringdata.io/roleDescription", LiteralAs.string, LiteralFrom.string);
   }
 
   get roleHasMinimumAge(): Set<string> {
-    return this.objects("https://ns.volunteeringdata.io/roleMinimumAge", ValueMapping.literalToString, TermMapping.stringToLiteral);
+    return this.objects("https://ns.volunteeringdata.io/roleMinimumAge", LiteralAs.string, LiteralFrom.string);
   }
 
   get roleAllowsRemoteParticipation(): Set<boolean> {
-    return this.objects("https://ns.volunteeringdata.io/roleAllowsRemoteParticipation", ValueMapping.literalToBoolean, TermMapping.booleanToLiteral);
+    return this.objects("https://ns.volunteeringdata.io/roleAllowsRemoteParticipation", LiteralAs.boolean, LiteralFrom.boolean);
   }
 
   get roleHasMaximumAge(): Set<string> {
-    return this.objects("https://ns.volunteeringdata.io/roleMaximumAge", ValueMapping.literalToString, TermMapping.stringToLiteral);
+    return this.objects("https://ns.volunteeringdata.io/roleMaximumAge", LiteralAs.string, LiteralFrom.string);
   }
 
   get roleHasSkill(): Set<VolunteerSkill> {
-    return this.objects("https://ns.volunteeringdata.io/roleSkill", ObjectMapping.as(VolunteerSkill), ObjectMapping.as(VolunteerSkill));
+    return this.objects("https://ns.volunteeringdata.io/roleSkill", TermAs.instance(VolunteerSkill), TermFrom.instance);
   }
 
   get roleHasAccessibility(): Set<VolunteerAccessibility> {
-    return this.objects("https://ns.volunteeringdata.io/roleAccessibility", ObjectMapping.as(VolunteerAccessibility), ObjectMapping.as(VolunteerAccessibility));
+    return this.objects("https://ns.volunteeringdata.io/roleAccessibility", TermAs.instance(VolunteerAccessibility), TermFrom.instance);
   }
 
   get roleHasTitle(): Set<string> {
-    return this.objects("https://ns.volunteeringdata.io/roleTitle", ValueMapping.literalToString, TermMapping.stringToLiteral);
+    return this.objects("https://ns.volunteeringdata.io/roleTitle", LiteralAs.string, LiteralFrom.string);
   }
 
   get roleHasApplyLink(): Set<string> {
-    return this.objects("https://ns.volunteeringdata.io/roleApplyLink", ValueMapping.literalToString, TermMapping.stringToLiteral);
+    return this.objects("https://ns.volunteeringdata.io/roleApplyLink", LiteralAs.string, LiteralFrom.string);
   }
 
   get roleHasReward(): Set<VolunteerReward> {
-    return this.objects("https://ns.volunteeringdata.io/roleReward", ObjectMapping.as(VolunteerReward), ObjectMapping.as(VolunteerReward));
+    return this.objects("https://ns.volunteeringdata.io/roleReward", TermAs.instance(VolunteerReward), TermFrom.instance);
   }
 
   get roleHasActivity(): Set<VolunteerActivity> {
-    return this.objects("https://ns.volunteeringdata.io/roleActivity", ObjectMapping.as(VolunteerActivity), ObjectMapping.as(VolunteerActivity));
+    return this.objects("https://ns.volunteeringdata.io/roleActivity", TermAs.instance(VolunteerActivity), TermFrom.instance);
   }
 }
