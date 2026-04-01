@@ -1,0 +1,580 @@
+@prefix : <https://solidproject.org/shapes/volunteer#>.
+@prefix dash: <http://datashapes.org/dash#>.
+@prefix dc: <http://purl.org/dc/terms/>.
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>.
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#>.
+@prefix graphql: <http://datashapes.org/graphql#>.
+@prefix id: <https://id.volunteeringdata.io/>.
+@prefix og: <http://ogp.me/ns#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix owl2sh-semi-closed: <http://data.sparna.fr/ontologies/owl2sh-semi-closed#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix swa: <http://topbraid.org/swa#>.
+@prefix time: <http://www.w3.org/2006/time#>.
+@prefix tosh: <http://topbraid.org/tosh#>.
+@prefix vann: <http://purl.org/vocab/vann/>.
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix volunteer_shape: <https://solidproject.org/shapes/volunteer#>.
+@prefix vs: <http://www.w3.org/2006/VS/terms/>.
+@prefix prov: <http://www.w3.org/ns/prov#>.
+
+volunteer_shape:role_has_requirement sh:type sh:PropertyShape;
+    sh:name "Role_roleRequirement";
+    sh:codeIdentifier "role_has_requirement";
+    a sh:PropertyShape;
+    sh:class :Requirement;
+    sh:path :roleRequirement
+.
+volunteer_shape:activity_requires_emergency_participation sh:type sh:PropertyShape;
+    sh:name "Activity_activityRequiresEmergencyParticipation";
+    sh:codeIdentifier "activity_requires_emergency_participation";
+    a sh:PropertyShape;
+    sh:datatype xsd:boolean;
+    sh:path :activityRequiresEmergencyParticipation
+.
+volunteer_shape:session_has_activity sh:type sh:PropertyShape;
+    sh:name "Session_sessionActivity";
+    sh:codeIdentifier "session_has_activity";
+    a sh:PropertyShape;
+    sh:class :Activity;
+    sh:path :sessionActivity
+.
+volunteer_shape:role_has_commitment sh:type sh:PropertyShape;
+    sh:name "Role_roleCommitment";
+    sh:codeIdentifier "role_has_commitment";
+    a sh:PropertyShape;
+    sh:path :roleCommitment
+.
+volunteer_shape:role_has_description sh:type sh:PropertyShape;
+    sh:name "Role_roleDescription";
+    sh:codeIdentifier "role_has_description";
+    a sh:PropertyShape;
+    sh:path :roleDescription
+.
+volunteer_shape:role_has_minimum_age sh:type sh:PropertyShape;
+    sh:name "Role_roleMinimumAge";
+    sh:codeIdentifier "role_has_minimum_age";
+    a sh:PropertyShape;
+    sh:path :roleMinimumAge
+.
+volunteer_shape:organisation_has_charity_number sh:type sh:PropertyShape;
+    sh:name "Organisation_organisationCharityNumber";
+    sh:codeIdentifier "organisation_has_charity_number";
+    a sh:PropertyShape;
+    sh:path :organisationCharityNumber
+.
+volunteer_shape:location_has_address sh:type sh:PropertyShape;
+    sh:name "Location_locationAddress";
+    sh:codeIdentifier "location_has_address";
+    a sh:PropertyShape;
+    sh:path :locationAddress
+.
+volunteer_shape:activity_has_title sh:type sh:PropertyShape;
+    sh:name "Activity_activityTitle";
+    sh:codeIdentifier "activity_has_title";
+    a sh:PropertyShape;
+    sh:path :activityTitle
+.
+volunteer_shape:activity_has_role sh:type sh:PropertyShape;
+    sh:name "Activity_activityRole";
+    sh:codeIdentifier "activity_has_role";
+    a sh:PropertyShape;
+    sh:class :Role;
+    sh:path :activityRole
+.
+volunteer_shape:session_has_time sh:type sh:PropertyShape;
+    sh:name "Session_sessionTime";
+    sh:codeIdentifier "session_has_time";
+    a sh:PropertyShape;
+    sh:class :Time;
+    sh:path :sessionTime
+.
+volunteer_shape:organisation_has_name sh:type sh:PropertyShape;
+    sh:name "Organisation_organisationName";
+    sh:codeIdentifier "organisation_has_name";
+    a sh:PropertyShape;
+    sh:path :organisationName
+.
+volunteer_shape:activity_has_description sh:type sh:PropertyShape;
+    sh:name "Activity_activityDescription";
+    sh:codeIdentifier "activity_has_description";
+    a sh:PropertyShape;
+    sh:path :activityDescription
+.
+volunteer_shape:role_allows_remote_participation sh:type sh:PropertyShape;
+    sh:name "Role_roleAllowsRemoteParticipation";
+    sh:codeIdentifier "role_allows_remote_participation";
+    a sh:PropertyShape;
+    sh:datatype xsd:boolean;
+    sh:path :roleAllowsRemoteParticipation
+.
+volunteer_shape:location_has_longitude sh:type sh:PropertyShape;
+    sh:name "Location_locationLongitude";
+    sh:codeIdentifier "location_has_longitude";
+    a sh:PropertyShape;
+    sh:path :locationLongitude
+.
+volunteer_shape:organisation_has_activity sh:type sh:PropertyShape;
+    sh:name "Organisation_organisationActivity";
+    sh:codeIdentifier "organisation_has_activity";
+    a sh:PropertyShape;
+    sh:class :Activity;
+    sh:path :organisationActivity
+.
+volunteer_shape:session_has_location sh:type sh:PropertyShape;
+    sh:name "Session_sessionLocation";
+    sh:codeIdentifier "session_has_location";
+    a sh:PropertyShape;
+    sh:class :Location;
+    sh:path :sessionLocation
+.
+volunteer_shape:location_has_latitude sh:type sh:PropertyShape;
+    sh:name "Location_locationLatitude";
+    sh:codeIdentifier "location_has_latitude";
+    a sh:PropertyShape;
+    sh:path :locationLatitude
+.
+volunteer_shape:session_has_location sh:type sh:PropertyShape;
+    sh:name "Location_locationSession";
+    sh:codeIdentifier "session_has_location";
+    a sh:PropertyShape;
+    sh:class :Session;
+    sh:path :locationSession
+.
+volunteer_shape:activity_has_session sh:type sh:PropertyShape;
+    sh:name "Activity_activitySession";
+    sh:codeIdentifier "activity_has_session";
+    a sh:PropertyShape;
+    sh:class :Session;
+    sh:path :activitySession
+.
+volunteer_shape:role_has_maximum_age sh:type sh:PropertyShape;
+    sh:name "Role_roleMaximumAge";
+    sh:codeIdentifier "role_has_maximum_age";
+    a sh:PropertyShape;
+    sh:path :roleMaximumAge
+.
+volunteer_shape:role_has_skill sh:type sh:PropertyShape;
+    sh:name "Role_roleSkill";
+    sh:codeIdentifier "role_has_skill";
+    a sh:PropertyShape;
+    sh:class :Skill;
+    sh:path :roleSkill
+.
+volunteer_shape:organisation_has_description sh:type sh:PropertyShape;
+    sh:name "Organisation_organisationDescription";
+    sh:codeIdentifier "organisation_has_description";
+    a sh:PropertyShape;
+    sh:path :organisationDescription
+.
+volunteer_shape:role_has_accessibility sh:type sh:PropertyShape;
+    sh:name "Role_roleAccessibility";
+    sh:codeIdentifier "role_has_accessibility";
+    a sh:PropertyShape;
+    sh:class :Accessibility;
+    sh:path :roleAccessibility
+.
+volunteer_shape:organisation_has_charitable_cause sh:type sh:PropertyShape;
+    sh:name "Organisation_organisationCause";
+    sh:codeIdentifier "organisation_has_charitable_cause";
+    a sh:PropertyShape;
+    sh:class :Cause;
+    sh:path :organisationCause
+.
+volunteer_shape:role_has_title sh:type sh:PropertyShape;
+    sh:name "Role_roleTitle";
+    sh:codeIdentifier "role_has_title";
+    a sh:PropertyShape;
+    sh:path :roleTitle
+.
+volunteer_shape:organisation_has_image sh:type sh:PropertyShape;
+    sh:name "Organisation_organisationImage";
+    sh:codeIdentifier "organisation_has_image";
+    a sh:PropertyShape;
+    sh:path :organisationImage
+.
+volunteer_shape:organisation_has_website sh:type sh:PropertyShape;
+    sh:name "Organisation_organisationWebsite";
+    sh:codeIdentifier "organisation_has_website";
+    a sh:PropertyShape;
+    sh:path :organisationWebsite
+.
+volunteer_shape:role_has_apply_link sh:type sh:PropertyShape;
+    sh:name "Role_roleApplyLink";
+    sh:codeIdentifier "role_has_apply_link";
+    a sh:PropertyShape;
+    sh:path :roleApplyLink
+.
+volunteer_shape:location_has_name sh:type sh:PropertyShape;
+    sh:name "Location_locationName";
+    sh:codeIdentifier "location_has_name";
+    a sh:PropertyShape;
+    sh:path :locationName
+.
+volunteer_shape:role_has_reward sh:type sh:PropertyShape;
+    sh:name "Role_roleReward";
+    sh:codeIdentifier "role_has_reward";
+    a sh:PropertyShape;
+    sh:class :Reward;
+    sh:path :roleReward
+.
+volunteer_shape:role_has_activity sh:type sh:PropertyShape;
+    sh:name "Role_roleActivity";
+    sh:codeIdentifier "role_has_activity";
+    a sh:PropertyShape;
+    sh:class :Activity;
+    sh:path :roleActivity
+.
+volunteer_shape:activity_has_image sh:type sh:PropertyShape;
+    sh:name "Activity_activityImage";
+    sh:codeIdentifier "activity_has_image";
+    a sh:PropertyShape;
+    sh:path :activityImage
+.
+volunteer_shape:location_has_geometry sh:type sh:PropertyShape;
+    sh:name "Location_locationGeometry";
+    sh:codeIdentifier "location_has_geometry";
+    a sh:PropertyShape;
+    sh:path :locationGeometry
+.
+volunteer_shape:activity_has_organisation sh:type sh:PropertyShape;
+    sh:name "Activity_activityOrganisation";
+    sh:codeIdentifier "activity_has_organisation";
+    a sh:PropertyShape;
+    sh:class :Organisation;
+    sh:path :activityOrganisation
+.
+volunteer_shape:time_has_session sh:type sh:PropertyShape;
+    sh:name "Time_timeSession";
+    sh:codeIdentifier "time_has_session";
+    a sh:PropertyShape;
+    sh:class :Session;
+    sh:path :timeSession
+.
+volunteer_shape:ActivityHasDescription sh:type sh:NodeShape;
+    sh:name "activityDescription-shape";
+    sh:codeIdentifier "VolunteeractivityHasDescription";
+    a sh:NodeShape;
+    sh:class :Activity;
+    sh:targetSubjectsOf :activityDescription
+.
+volunteer_shape:RequirementHasRole sh:type sh:NodeShape;
+    sh:name "requirementRole-shape";
+    sh:codeIdentifier "VolunteerrequirementHasRole";
+    a sh:NodeShape;
+    sh:class :Requirement;
+    sh:targetSubjectsOf :requirementRole
+.
+volunteer_shape:RoleHasTitle sh:type sh:NodeShape;
+    sh:name "roleTitle-shape";
+    sh:codeIdentifier "VolunteerroleHasTitle";
+    a sh:NodeShape;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleTitle
+.
+volunteer_shape:RoleHasActivity sh:type sh:NodeShape;
+    sh:name "roleActivity-shape";
+    sh:codeIdentifier "VolunteerroleHasActivity";
+    a sh:NodeShape;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleActivity
+.
+volunteer_shape:RewardHasRole sh:type sh:NodeShape;
+    sh:name "rewardRole-shape";
+    sh:codeIdentifier "VolunteerrewardHasRole";
+    a sh:NodeShape;
+    sh:class :Reward;
+    sh:targetSubjectsOf :rewardRole
+.
+volunteer_shape:ActivityHasTitle sh:type sh:NodeShape;
+    sh:name "activityTitle-shape";
+    sh:codeIdentifier "VolunteeractivityHasTitle";
+    a sh:NodeShape;
+    sh:class :Activity;
+    sh:targetSubjectsOf :activityTitle
+.
+volunteer_shape:SessionHasTime sh:type sh:NodeShape;
+    sh:name "sessionTime-shape";
+    sh:codeIdentifier "VolunteersessionHasTime";
+    a sh:NodeShape;
+    sh:class :Session;
+    sh:targetSubjectsOf :sessionTime
+.
+volunteer_shape:TimeHasSession sh:type sh:NodeShape;
+    sh:name "timeSession-shape";
+    sh:codeIdentifier "VolunteertimeHasSession";
+    a sh:NodeShape;
+    sh:class :Time;
+    sh:targetSubjectsOf :timeSession
+.
+volunteer_shape:Activity sh:type sh:NodeShape;
+    sh:name "Activity";
+    sh:codeIdentifier "VolunteerActivity";
+    a sh:NodeShape, rdfs:Class;
+    sh:property volunteer_shape:activity_has_description, volunteer_shape:activity_has_role, volunteer_shape:activity_requires_emergency_participation, volunteer_shape:activity_has_title, volunteer_shape:activity_has_image, volunteer_shape:activity_has_organisation, volunteer_shape:activity_has_session
+.
+volunteer_shape:Time sh:type sh:NodeShape;
+    sh:name "Time";
+    sh:codeIdentifier "VolunteerTime";
+    a rdfs:Class, sh:NodeShape;
+    sh:property volunteer_shape:time_has_session
+.
+volunteer_shape:OrganisationHasCharityNumber sh:type sh:NodeShape;
+    sh:name "organisationCharityNumber-shape";
+    sh:codeIdentifier "VolunteerorganisationHasCharityNumber";
+    a sh:NodeShape;
+    sh:class :Organisation;
+    sh:targetSubjectsOf :organisationCharityNumber
+.
+volunteer_shape:ActivityHasSession sh:type sh:NodeShape;
+    sh:name "activitySession-shape";
+    sh:codeIdentifier "VolunteeractivityHasSession";
+    a sh:NodeShape;
+    sh:class :Activity;
+    sh:targetSubjectsOf :activitySession
+.
+volunteer_shape:RoleHasReward sh:type sh:NodeShape;
+    sh:name "roleReward-shape";
+    sh:codeIdentifier "VolunteerroleHasReward";
+    a sh:NodeShape;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleReward
+.
+volunteer_shape:OrganisationHasDescription sh:type sh:NodeShape;
+    sh:name "organisationDescription-shape";
+    sh:codeIdentifier "VolunteerorganisationHasDescription";
+    a sh:NodeShape;
+    sh:class :Organisation;
+    sh:targetSubjectsOf :organisationDescription
+.
+volunteer_shape:RoleHasDescription sh:type sh:NodeShape;
+    sh:name "roleDescription-shape";
+    sh:codeIdentifier "VolunteerroleHasDescription";
+    a sh:NodeShape;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleDescription
+.
+volunteer_shape:Location sh:type sh:NodeShape;
+    sh:name "Location";
+    sh:codeIdentifier "VolunteerLocation";
+    a sh:NodeShape, rdfs:Class;
+    sh:property volunteer_shape:location_has_geometry, volunteer_shape:location_has_address, volunteer_shape:session_has_location, volunteer_shape:location_has_longitude, volunteer_shape:location_has_latitude, volunteer_shape:location_has_name
+.
+volunteer_shape:LocationHasLongitude sh:type sh:NodeShape;
+    sh:name "locationLongitude-shape";
+    sh:codeIdentifier "VolunteerlocationHasLongitude";
+    a sh:NodeShape;
+    sh:class :Location;
+    sh:targetSubjectsOf :locationLongitude
+.
+volunteer_shape:ActivityHasRole sh:type sh:NodeShape;
+    sh:name "activityRole-shape";
+    sh:codeIdentifier "VolunteeractivityHasRole";
+    a sh:NodeShape;
+    sh:class :Activity;
+    sh:targetSubjectsOf :activityRole
+.
+volunteer_shape:CharitableCauseHasOrganisation sh:type sh:NodeShape;
+    sh:name "causeOrganisation-shape";
+    sh:codeIdentifier "VolunteercharitableCauseHasOrganisation";
+    a sh:NodeShape;
+    sh:class :Cause;
+    sh:targetSubjectsOf :causeOrganisation
+.
+volunteer_shape:RoleHasMinimumAge sh:type sh:NodeShape;
+    sh:name "roleMinimumAge-shape";
+    sh:codeIdentifier "VolunteerroleHasMinimumAge";
+    a sh:NodeShape;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleMinimumAge
+.
+volunteer_shape:RoleHasAccessibility sh:type sh:NodeShape;
+    sh:name "roleAccessibility-shape";
+    sh:codeIdentifier "VolunteerroleHasAccessibility";
+    a sh:NodeShape;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleAccessibility
+.
+volunteer_shape:AccessibilityInformationHasRole sh:type sh:NodeShape;
+    sh:name "accessibilityRole-shape";
+    sh:codeIdentifier "VolunteeraccessibilityInformationHasRole";
+    a sh:NodeShape;
+    sh:class :Accessibility;
+    sh:targetSubjectsOf :accessibilityRole
+.
+volunteer_shape:LocationHasAddress sh:type sh:NodeShape;
+    sh:name "locationAddress-shape";
+    sh:codeIdentifier "VolunteerlocationHasAddress";
+    a sh:NodeShape;
+    sh:class :Location;
+    sh:targetSubjectsOf :locationAddress
+.
+volunteer_shape:Organisation sh:type sh:NodeShape;
+    sh:name "Organisation";
+    sh:codeIdentifier "VolunteerOrganisation";
+    a rdfs:Class, sh:NodeShape;
+    sh:property volunteer_shape:organisation_has_charity_number, volunteer_shape:organisation_has_image, volunteer_shape:organisation_has_website, volunteer_shape:organisation_has_charitable_cause, volunteer_shape:organisation_has_name, volunteer_shape:organisation_has_activity, volunteer_shape:organisation_has_description
+.
+volunteer_shape:RoleHasMaximumAge sh:type sh:NodeShape;
+    sh:name "roleMaximumAge-shape";
+    sh:codeIdentifier "VolunteerroleHasMaximumAge";
+    a sh:NodeShape;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleMaximumAge
+.
+volunteer_shape:OrganisationHasName sh:type sh:NodeShape;
+    sh:name "organisationName-shape";
+    sh:codeIdentifier "VolunteerorganisationHasName";
+    a sh:NodeShape;
+    sh:class :Organisation;
+    sh:targetSubjectsOf :organisationName
+.
+volunteer_shape:LocationHasName sh:type sh:NodeShape;
+    sh:name "locationName-shape";
+    sh:codeIdentifier "VolunteerlocationHasName";
+    a sh:NodeShape;
+    sh:class :Location;
+    sh:targetSubjectsOf :locationName
+.
+volunteer_shape:RoleHasCommitment sh:type sh:NodeShape;
+    sh:name "roleCommitment-shape";
+    sh:codeIdentifier "VolunteerroleHasCommitment";
+    a sh:NodeShape;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleCommitment
+.
+volunteer_shape:LocationHasLatitude sh:type sh:NodeShape;
+    sh:name "locationLatitude-shape";
+    sh:codeIdentifier "VolunteerlocationHasLatitude";
+    a sh:NodeShape;
+    sh:class :Location;
+    sh:targetSubjectsOf :locationLatitude
+.
+volunteer_shape:SessionHasActivity sh:type sh:NodeShape;
+    sh:name "sessionActivity-shape";
+    sh:codeIdentifier "VolunteersessionHasActivity";
+    a sh:NodeShape;
+    sh:class :Session;
+    sh:targetSubjectsOf :sessionActivity
+.
+volunteer_shape:ActivityRequiresEmergencyParticipation sh:type sh:NodeShape;
+    sh:name "activityRequiresEmergencyParticipation-shape";
+    sh:codeIdentifier "VolunteeractivityRequiresEmergencyParticipation";
+    a sh:NodeShape;
+    sh:class :Activity;
+    sh:targetSubjectsOf :activityRequiresEmergencyParticipation
+.
+volunteer_shape:Role sh:type sh:NodeShape;
+    sh:name "Role";
+    sh:codeIdentifier "VolunteerRole";
+    a rdfs:Class, sh:NodeShape;
+    sh:property volunteer_shape:role_has_title, volunteer_shape:role_has_description, volunteer_shape:role_has_accessibility, volunteer_shape:role_has_apply_link, volunteer_shape:role_has_skill, volunteer_shape:role_has_reward, volunteer_shape:role_has_activity, volunteer_shape:role_has_requirement, volunteer_shape:role_has_minimum_age, volunteer_shape:role_has_commitment, volunteer_shape:role_allows_remote_participation, volunteer_shape:role_has_maximum_age
+.
+volunteer_shape:OrganisationHasCharitableCause sh:type sh:NodeShape;
+    sh:name "organisationCause-shape";
+    sh:codeIdentifier "VolunteerorganisationHasCharitableCause";
+    a sh:NodeShape;
+    sh:class :Organisation;
+    sh:targetSubjectsOf :organisationCause
+.
+volunteer_shape:Session sh:type sh:NodeShape;
+    sh:name "Session";
+    sh:codeIdentifier "VolunteerSession";
+    a sh:NodeShape, rdfs:Class;
+    sh:property volunteer_shape:session_has_time, volunteer_shape:session_has_activity, volunteer_shape:session_has_location
+.
+volunteer_shape:OrganisationHasImage sh:type sh:NodeShape;
+    sh:name "organisationImage-shape";
+    sh:codeIdentifier "VolunteerorganisationHasImage";
+    a sh:NodeShape;
+    sh:class :Organisation;
+    sh:targetSubjectsOf :organisationImage
+.
+volunteer_shape:SessionHasLocation sh:type sh:NodeShape;
+    sh:name "locationSession-shape";
+    sh:codeIdentifier "VolunteersessionHasLocation";
+    a sh:NodeShape;
+    sh:class :Location;
+    sh:targetSubjectsOf :locationSession
+.
+volunteer_shape:ActivityHasImage sh:type sh:NodeShape;
+    sh:name "activityImage-shape";
+    sh:codeIdentifier "VolunteeractivityHasImage";
+    a sh:NodeShape;
+    sh:class :Activity;
+    sh:targetSubjectsOf :activityImage
+.
+volunteer_shape:OrganisationHasWebsite sh:type sh:NodeShape;
+    sh:name "organisationWebsite-shape";
+    sh:codeIdentifier "VolunteerorganisationHasWebsite";
+    a sh:NodeShape;
+    sh:class :Organisation;
+    sh:targetSubjectsOf :organisationWebsite
+.
+volunteer_shape:OrganisationHasActivity sh:type sh:NodeShape;
+    sh:name "organisationActivity-shape";
+    sh:codeIdentifier "VolunteerorganisationHasActivity";
+    a sh:NodeShape;
+    sh:class :Organisation;
+    sh:targetSubjectsOf :organisationActivity
+.
+volunteer_shape:SkillHasRole sh:type sh:NodeShape;
+    sh:name "skillRole-shape";
+    sh:codeIdentifier "VolunteerskillHasRole";
+    a sh:NodeShape;
+    sh:class :Skill;
+    sh:targetSubjectsOf :skillRole
+.
+volunteer_shape:RoleHasRequirement sh:type sh:NodeShape;
+    sh:name "roleRequirement-shape";
+    sh:codeIdentifier "VolunteerroleHasRequirement";
+    a sh:NodeShape;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleRequirement
+.
+volunteer_shape:ActivityHasOrganisation sh:type sh:NodeShape;
+    sh:name "activityOrganisation-shape";
+    sh:codeIdentifier "VolunteeractivityHasOrganisation";
+    a sh:NodeShape;
+    sh:class :Activity;
+    sh:targetSubjectsOf :activityOrganisation
+.
+volunteer_shape:LocationHasGeometry sh:type sh:NodeShape;
+    sh:name "locationGeometry-shape";
+    sh:codeIdentifier "VolunteerlocationHasGeometry";
+    a sh:NodeShape;
+    sh:class :Location;
+    sh:targetSubjectsOf :locationGeometry
+.
+volunteer_shape:RoleHasApplyLink sh:type sh:NodeShape;
+    sh:name "roleApplyLink-shape";
+    sh:codeIdentifier "VolunteerroleHasApplyLink";
+    a sh:NodeShape;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleApplyLink
+.
+volunteer_shape:RoleHasSkill sh:type sh:NodeShape;
+    sh:name "roleSkill-shape";
+    sh:codeIdentifier "VolunteerroleHasSkill";
+    a sh:NodeShape;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleSkill
+.
+volunteer_shape:SessionHasLocation sh:type sh:NodeShape;
+    sh:name "sessionLocation-shape";
+    sh:codeIdentifier "VolunteersessionHasLocation";
+    a sh:NodeShape;
+    sh:class :Session;
+    sh:targetSubjectsOf :sessionLocation
+.
+volunteer_shape:RoleAllowsRemoteParticipation sh:type sh:NodeShape;
+    sh:name "roleAllowsRemoteParticipation-shape";
+    sh:codeIdentifier "VolunteerroleAllowsRemoteParticipation";
+    a sh:NodeShape;
+    sh:class :Role;
+    sh:targetSubjectsOf :roleAllowsRemoteParticipation
+.
