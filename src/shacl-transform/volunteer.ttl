@@ -1,4 +1,4 @@
-@prefix : <https://solidproject.org/shapes/volunteer#>.
+@prefix : <https://ns.volunteeringdata.io/>.
 @prefix dash: <http://datashapes.org/dash#>.
 @prefix dc: <http://purl.org/dc/terms/>.
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>.
